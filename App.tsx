@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -7,8 +6,14 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import Timer from './components/Timer';
 import Profile from './components/Profile';
 
+import createTable from './data_layer/createTable';
+
 const App = () => {
   const Tab = createBottomTabNavigator();
+
+  useEffect(() => {
+    createTable();
+  }, []);
 
   return (
     <NavigationContainer>
