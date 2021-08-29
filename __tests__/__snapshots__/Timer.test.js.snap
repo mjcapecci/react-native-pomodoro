@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> to match screenshot 1`] = `
+exports[`<Timer /> to match screenshot 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
   style={
