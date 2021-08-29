@@ -1,41 +1,37 @@
-import React from 'react';
-import { StyleSheet, Text, Button, View } from 'react-native';
-import addRecord from '../../data_layer/addRecord';
-import deleteAllRecords from '../../data_layer/deleteAllRecords';
-import getRecords from '../../data_layer/getRecords';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Heading, Box } from 'native-base';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Timer = () => {
-  const alertRecords = async () => {
-    console.log(await getRecords());
-  };
+  const [timerActive, setTimerActive] = useState(false);
 
   return (
     <View style={styles.container}>
-      <Text>Timer Page</Text>
-      <Button
-        onPress={addRecord}
-        title='Add Record '
-        color='#841584'
-        accessibilityLabel='Learn more about this purple button'
-      >
-        Add Record
-      </Button>
-      <Button
-        onPress={alertRecords}
-        title='Get Records'
-        color='#841584'
-        accessibilityLabel='Learn more about this purple button'
-      >
-        Get Records
-      </Button>
-      <Button
-        onPress={deleteAllRecords}
-        title='Delete All Records (Testing)'
-        color='#841584'
-        accessibilityLabel='Learn more about this purple button'
-      >
-        Get Records
-      </Button>
+      <Heading style={styles.timeHeader}>25:00</Heading>
+      <Box style={styles.starContainer}>
+        <Ionicons name='star' color='gold' size={24} style={styles.star} />
+        <Ionicons name='star' color='grey' size={24} style={styles.star} />
+        <Ionicons name='star' color='grey' size={24} style={styles.star} />
+        <Ionicons name='star' color='grey' size={24} style={styles.star} />
+      </Box>
+      <Box style={styles.actionButton}>
+        {!timerActive ? (
+          <Ionicons
+            name='play-circle-outline'
+            color='white'
+            size={104}
+            onPress={() => setTimerActive(true)}
+          ></Ionicons>
+        ) : (
+          <Ionicons
+            name='stop-circle-outline'
+            color='white'
+            size={104}
+            onPress={() => setTimerActive(false)}
+          ></Ionicons>
+        )}
+      </Box>
     </View>
   );
 };
@@ -43,9 +39,24 @@ const Timer = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  timeHeader: {
+    fontSize: 84,
+    color: '#fff',
+    marginBottom: 20,
+  },
+  starContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  star: {
+    margin: 3,
+  },
+  resetButton: {},
+  actionButton: {
+    marginTop: 30,
   },
 });
 
