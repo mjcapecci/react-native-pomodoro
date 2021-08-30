@@ -7,7 +7,7 @@ import Constants from 'expo-constants';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import Timer from './components/Timer';
-import Profile from './components/Profile';
+import Stats from './components/Stats';
 import DevTools from './components/DevTools';
 
 import createTable from './data_layer/createTable';
@@ -36,16 +36,12 @@ const App = () => {
             }}
           />
           <Tab.Screen
-            name='Profile'
-            component={Profile}
+            name='Stats'
+            component={Stats}
             options={{
               tabBarLabelPosition: 'beside-icon',
               tabBarIcon: () => (
-                <Ionicons
-                  name='person-circle-outline'
-                  size={22}
-                  color='white'
-                />
+                <Ionicons name='stats-chart' size={22} color='white' />
               ),
             }}
           />
