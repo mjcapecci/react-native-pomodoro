@@ -12,6 +12,17 @@ import DevTools from './components/DevTools';
 
 import createTable from './data_layer/createTable';
 
+import * as Notifications from 'expo-notifications';
+import { askPermissions } from './components/Notifications/notificationManager';
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+});
+
 const App = () => {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
@@ -20,6 +31,15 @@ const App = () => {
   useEffect(() => {
     createTable();
   }, []);
+
+  // get initial notification permissions if not exist
+  useEffect(() => {
+    async function getInitialPermissions() {
+      await askPermissions();
+    }
+
+    getInitialPermissions();
+  });
 
   return (
     <NativeBaseProvider>

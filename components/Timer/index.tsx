@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, View } from 'react-native';
 import { Heading, Box, Button } from 'native-base';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import {
+  askPermissions,
+  scheduleNotification,
+  logNotifications,
+} from '../Notifications/notificationManager';
 import {
   fmtMSS,
   getIconColor,
@@ -44,17 +50,33 @@ const Timer = () => {
     setSecondsLeft(getSecondsReset(nextRoundType));
   };
 
-  const startTimer = () => {
+  const startTimer = async () => {
     setSecondsLeft(secondsLeft - 1);
+
+    const roundData = {
+      date: new Date().getTime(),
+      roundNumber: roundNumber,
+      roundType: roundType,
+    };
+
+    await AsyncStorage.setItem('roundData', JSON.stringify(roundData));
+    await scheduleNotification();
   };
 
   const stopTimer = async () => {
+    await AsyncStorage.removeItem('roundData');
     await setTimeout(() => {
       setSecondsLeft(
         getSecondsReset(getRoundType(getNextRound(roundNumber - 1)))
       );
       setEnabled(true);
     }, 1000);
+  };
+
+  const printAsyncStorage = async () => {
+    const notifications = await logNotifications();
+    const startTime = await AsyncStorage.getItem('roundData');
+    console.log(notifications);
   };
 
   return (
@@ -138,6 +160,15 @@ const Timer = () => {
             color='white'
             size={50}
             onPress={() => advanceRound()}
+          ></Ionicons>
+        </Button>
+        <Button>
+          {' '}
+          <Ionicons
+            name='play-skip-forward-circle'
+            color='white'
+            size={50}
+            onPress={() => printAsyncStorage()}
           ></Ionicons>
         </Button>
       </View>

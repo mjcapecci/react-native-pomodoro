@@ -1,5 +1,5 @@
 import { Heading } from 'native-base';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Chart from './Chart';
 import StatViewer from './StatViewer';
