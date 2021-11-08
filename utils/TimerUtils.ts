@@ -42,7 +42,7 @@ export const getIconColor = (
 export const getSecondsReset = (roundType: string): number => {
   switch (roundType) {
     case 'work':
-      return 5;
+      return 1500;
     case 'short_break':
       return 300;
     case 'long_break':
