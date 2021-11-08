@@ -11,16 +11,21 @@ export const askPermissions = async () => {
   });
 };
 
-export const scheduleNotification = async () => {
+export const scheduleNotification = async (seconds: number) => {
   return await Notifications.scheduleNotificationAsync({
     content: {
       title: 'Look at that notification',
       body: "I'm so proud of myself!",
+      sound: 'pomo-marimba.mp3',
     },
     trigger: {
-      seconds: 10,
+      seconds,
     },
   });
+};
+
+export const cancelAllNotifications = async () => {
+  return await Notifications.cancelAllScheduledNotificationsAsync();
 };
 
 export const logNotifications = async () => {

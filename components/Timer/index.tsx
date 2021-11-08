@@ -4,9 +4,8 @@ import { StyleSheet, View } from 'react-native';
 import { Heading, Box, Button } from 'native-base';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {
-  askPermissions,
   scheduleNotification,
-  logNotifications,
+  cancelAllNotifications,
 } from '../Notifications/notificationManager';
 import {
   fmtMSS,
@@ -19,10 +18,13 @@ import {
 
 const Timer = () => {
   const [enabled, setEnabled] = useState(true);
+  const [startButtonEnabled, setStartButtonEnabled] = useState(true);
   const [timerActive, setTimerActive] = useState(false);
   const [roundNumber, setRoundNumber] = useState(-1);
   const [roundType, setRoundType] = useState('work');
   const [secondsLeft, setSecondsLeft] = useState(1500);
+
+  const debugMode = false;
 
   useEffect(() => {
     if (!timerActive) {
@@ -31,14 +33,24 @@ const Timer = () => {
   }, [timerActive]);
 
   useEffect(() => {
-    if (timerActive && secondsLeft > 0) {
+    if (enabled) {
+      setTimeout(() => {
+        setStartButtonEnabled(true);
+      }, 1000);
+    } else {
+      setStartButtonEnabled(false);
+    }
+  }, [enabled]);
+
+  useEffect(() => {
+    if (timerActive && secondsLeft > -1) {
       setTimeout(() => {
         setSecondsLeft(secondsLeft - 1);
       }, 1000);
     } else {
+      stopTimer();
       setTimerActive(false);
       setEnabled(false);
-      stopTimer();
     }
   }, [secondsLeft]);
 
@@ -51,8 +63,6 @@ const Timer = () => {
   };
 
   const startTimer = async () => {
-    setSecondsLeft(secondsLeft - 1);
-
     const roundData = {
       date: new Date().getTime(),
       roundNumber: roundNumber,
@@ -60,11 +70,12 @@ const Timer = () => {
     };
 
     await AsyncStorage.setItem('roundData', JSON.stringify(roundData));
-    await scheduleNotification();
+    await scheduleNotification(secondsLeft);
   };
 
   const stopTimer = async () => {
     await AsyncStorage.removeItem('roundData');
+    await cancelAllNotifications();
     await setTimeout(() => {
       setSecondsLeft(
         getSecondsReset(getRoundType(getNextRound(roundNumber - 1)))
@@ -74,94 +85,96 @@ const Timer = () => {
   };
 
   const printAsyncStorage = async () => {
-    const notifications = await logNotifications();
     const startTime = await AsyncStorage.getItem('roundData');
-    console.log(notifications);
+    console.log(startTime);
   };
 
-  return (
-    enabled && (
-      <View style={styles.container}>
-        <Box style={styles.timeHeaderContainer}>
-          <Heading style={styles.timeHeader}>
-            {timerActive
+  return enabled ? (
+    <View style={styles.container}>
+      <Box style={styles.timeHeaderContainer}>
+        <Heading style={styles.timeHeader}>
+          {timerActive
+            ? secondsLeft > 0
               ? fmtMSS(secondsLeft)
-              : getNextRoundSecondsDisplay(roundNumber)}
-          </Heading>
-        </Box>
-        <Box style={styles.starContainer}>
+              : '0:00'
+            : getNextRoundSecondsDisplay(roundNumber)}
+        </Heading>
+      </Box>
+      <Box style={styles.starContainer}>
+        <Ionicons
+          name='hammer'
+          color={getIconColor(0, roundNumber, timerActive)}
+          size={24}
+          style={styles.star}
+        />
+        <Ionicons
+          name='walk'
+          color={getIconColor(1, roundNumber, timerActive)}
+          size={24}
+          style={styles.star}
+        />
+        <Ionicons
+          name='hammer'
+          color={getIconColor(2, roundNumber, timerActive)}
+          size={24}
+          style={styles.star}
+        />
+        <Ionicons
+          name='walk'
+          color={getIconColor(3, roundNumber, timerActive)}
+          size={24}
+          style={styles.star}
+        />
+        <Ionicons
+          name='hammer'
+          color={getIconColor(4, roundNumber, timerActive)}
+          size={24}
+          style={styles.star}
+        />
+        <Ionicons
+          name='pizza'
+          color={getIconColor(5, roundNumber, timerActive)}
+          size={24}
+          style={styles.star}
+        />
+      </Box>
+      <Box style={styles.actionButton}>
+        {!timerActive ? (
           <Ionicons
-            name='hammer'
-            color={getIconColor(0, roundNumber, timerActive)}
-            size={24}
-            style={styles.star}
-          />
-          <Ionicons
-            name='walk'
-            color={getIconColor(1, roundNumber, timerActive)}
-            size={24}
-            style={styles.star}
-          />
-          <Ionicons
-            name='hammer'
-            color={getIconColor(2, roundNumber, timerActive)}
-            size={24}
-            style={styles.star}
-          />
-          <Ionicons
-            name='walk'
-            color={getIconColor(3, roundNumber, timerActive)}
-            size={24}
-            style={styles.star}
-          />
-          <Ionicons
-            name='hammer'
-            color={getIconColor(4, roundNumber, timerActive)}
-            size={24}
-            style={styles.star}
-          />
-          <Ionicons
-            name='pizza'
-            color={getIconColor(5, roundNumber, timerActive)}
-            size={24}
-            style={styles.star}
-          />
-        </Box>
-        <Box style={styles.actionButton}>
-          {!timerActive ? (
-            <Ionicons
-              name='play-circle-outline'
-              color='white'
-              size={104}
-              onPress={() => {
-                if (enabled) {
-                  setTimerActive(true);
-                  startTimer();
-                }
-              }}
-            ></Ionicons>
-          ) : (
-            <Ionicons
-              name='stop-circle-outline'
-              color='white'
-              size={104}
-              onPress={() => {
-                setTimerActive(false);
-                setEnabled(false);
-                stopTimer();
-              }}
-            ></Ionicons>
-          )}
-        </Box>
-        <Button style={!timerActive ? styles.skipButton : styles.hideSkip}>
-          {' '}
-          <Ionicons
-            name='play-skip-forward-circle'
-            color='white'
-            size={50}
-            onPress={() => advanceRound()}
+            name='play-circle-outline'
+            color={startButtonEnabled ? 'white' : 'grey'}
+            size={104}
+            onPress={() => {
+              if (enabled && startButtonEnabled) {
+                setTimerActive(true);
+                setSecondsLeft(secondsLeft - 1);
+                startTimer();
+              }
+            }}
           ></Ionicons>
-        </Button>
+        ) : (
+          <Ionicons
+            name='stop-circle-outline'
+            color='white'
+            size={104}
+            onPress={() => {
+              setTimerActive(false);
+              setEnabled(false);
+              stopTimer();
+            }}
+          ></Ionicons>
+        )}
+      </Box>
+      <Button style={!timerActive ? styles.skipButton : styles.hideSkip}>
+        {' '}
+        <Ionicons
+          name='play-skip-forward-circle'
+          color='white'
+          size={50}
+          onPress={() => advanceRound()}
+        ></Ionicons>
+      </Button>
+      {debugMode && (
         <Button>
           {' '}
           <Ionicons
@@ -171,8 +184,14 @@ const Timer = () => {
             onPress={() => printAsyncStorage()}
           ></Ionicons>
         </Button>
-      </View>
-    )
+      )}
+    </View>
+  ) : (
+    <View style={styles.container}>
+      <Box style={styles.timeHeaderContainer}>
+        <Heading>Loading...</Heading>
+      </Box>
+    </View>
   );
 };
 
@@ -192,7 +211,7 @@ const styles = StyleSheet.create({
     fontSize: 84,
     color: '#fff',
     marginBottom: 5,
-    textAlign: 'left',
+    fontVariant: ['tabular-nums'],
   },
   starContainer: {
     display: 'flex',
