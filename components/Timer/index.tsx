@@ -12,6 +12,7 @@ import {
   getIconColor,
   getNextRound,
   getNextRoundSecondsDisplay,
+  getRoundLoadingText,
   getRoundType,
   getSecondsReset,
 } from '../../utils/TimerUtils';
@@ -189,7 +190,7 @@ const Timer = () => {
   ) : (
     <View style={styles.container}>
       <Box style={styles.timeHeaderContainer}>
-        <Heading>Loading...</Heading>
+        <Heading>{getRoundLoadingText(roundNumber)}</Heading>
       </Box>
     </View>
   );

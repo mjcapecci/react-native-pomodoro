@@ -71,6 +71,25 @@ export const getNextRoundSecondsDisplay = (roundNumber: number) => {
   }
 };
 
+export const getRoundLoadingText = (roundNumber: number) => {
+  switch (roundNumber) {
+    case 0:
+      return 'Loading work round...';
+    case 1:
+      return 'Loading break round...';
+    case 2:
+      return 'Loading work round...';
+    case 3:
+      return 'Loading break round...';
+    case 4:
+      return 'Loading work round...';
+    case 5:
+      return 'Loading long break...';
+    default:
+      return 'invalid_round_number';
+  }
+};
+
 export const fmtMSS = (s: number) => {
   return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s;
 };

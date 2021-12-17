@@ -5,6 +5,7 @@ import {
   getSecondsReset,
   getNextRoundSecondsDisplay,
   fmtMSS,
+  getRoundLoadingText,
 } from '../TimerUtils';
 
 // getNextRound
@@ -93,6 +94,31 @@ describe('getNextRoundSecondsDisplay returns the appropriate seconds in string f
   });
   it("invalid round, returns 'invalid_round_number'", () => {
     expect(getNextRoundSecondsDisplay(6)).toEqual('invalid_round_number');
+  });
+});
+
+// getRoundLoadingText
+describe('getRoundType returns the appropriate round name...', () => {
+  it('round 0', () => {
+    expect(getRoundLoadingText(0)).toEqual('Loading work round...');
+  });
+  it('round 1', () => {
+    expect(getRoundLoadingText(1)).toEqual('Loading break round...');
+  });
+  it('round 2', () => {
+    expect(getRoundLoadingText(2)).toEqual('Loading work round...');
+  });
+  it('round 3', () => {
+    expect(getRoundLoadingText(3)).toEqual('Loading break round...');
+  });
+  it('round 4', () => {
+    expect(getRoundLoadingText(4)).toEqual('Loading work round...');
+  });
+  it('round 5', () => {
+    expect(getRoundLoadingText(5)).toEqual('Loading long break...');
+  });
+  it('invalid round', () => {
+    expect(getRoundLoadingText(6)).toEqual('invalid_round_number');
   });
 });
 
