@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, Button, View } from 'react-native';
-import { Heading } from 'native-base';
+import { Headline } from 'react-native-paper';
 import addRecord from '../../data_layer/addRecord';
 import addSpecificRecord from '../../data_layer/addSpecificRecord';
 import deleteAllRecords from '../../data_layer/deleteAllRecords';
 import getRecords from '../../data_layer/getRecords';
 import { UserRecord } from '../../types';
 
-import NewRecordModal from './NewRecordModal';
+// import NewRecordModal from './NewRecordModal';
 
 const Profile = () => {
   const alertRecords = async () => {
@@ -26,12 +26,12 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <Heading>Dev Tools</Heading>
-      <NewRecordModal
+      <Headline>Dev Tools</Headline>
+      {/* <NewRecordModal
         isVisible={isVisible}
         toggleNewRecordModal={toggleNewRecordModal}
         submitRecord={submitRecord}
-      />
+      /> */}
       <Button
         onPress={addRecord}
         title='Add Generic Record '

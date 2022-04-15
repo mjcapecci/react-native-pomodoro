@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, View } from 'react-native';
-import { Heading, Box, Button } from 'native-base';
+import { Headline, Button } from 'react-native-paper';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {
   scheduleNotification,
@@ -17,7 +17,8 @@ import {
   getSecondsReset,
 } from '../../utils/TimerUtils';
 
-const Timer = () => {
+const Timer = ({ test }: any) => {
+  console.log(test);
   const [enabled, setEnabled] = useState(true);
   const [startButtonEnabled, setStartButtonEnabled] = useState(true);
   const [timerActive, setTimerActive] = useState(false);
@@ -74,6 +75,14 @@ const Timer = () => {
     await scheduleNotification(secondsLeft);
   };
 
+  const startRound = () => {
+    if (enabled && startButtonEnabled) {
+      setTimerActive(true);
+      setSecondsLeft(secondsLeft - 1);
+      startTimer();
+    }
+  };
+
   const stopTimer = async () => {
     await AsyncStorage.removeItem('roundData');
     await cancelAllNotifications();
@@ -90,18 +99,19 @@ const Timer = () => {
     console.log(startTime);
   };
 
-  return enabled ? (
-    <View style={styles.container}>
-      <Box style={styles.timeHeaderContainer}>
-        <Heading style={styles.timeHeader}>
+  return enabled || test ? (
+    <View style={styles.container} testID={'play-button'}>
+      <Button>Test</Button>
+      <View style={styles.timeHeaderContainer}>
+        <Headline style={styles.timeHeader}>
           {timerActive
             ? secondsLeft > 0
               ? fmtMSS(secondsLeft)
               : '0:00'
             : getNextRoundSecondsDisplay(roundNumber)}
-        </Heading>
-      </Box>
-      <Box style={styles.starContainer}>
+        </Headline>
+      </View>
+      <View style={styles.starContainer}>
         <Ionicons
           name='hammer'
           color={getIconColor(0, roundNumber, timerActive)}
@@ -138,20 +148,14 @@ const Timer = () => {
           size={24}
           style={styles.star}
         />
-      </Box>
-      <Box style={styles.actionButton}>
+      </View>
+      <View style={styles.actionButton}>
         {!timerActive ? (
           <Ionicons
             name='play-circle-outline'
             color={startButtonEnabled ? 'white' : 'grey'}
             size={104}
-            onPress={() => {
-              if (enabled && startButtonEnabled) {
-                setTimerActive(true);
-                setSecondsLeft(secondsLeft - 1);
-                startTimer();
-              }
-            }}
+            onPress={startRound}
           ></Ionicons>
         ) : (
           <Ionicons
@@ -165,7 +169,7 @@ const Timer = () => {
             }}
           ></Ionicons>
         )}
-      </Box>
+      </View>
       <Button style={!timerActive ? styles.skipButton : styles.hideSkip}>
         {' '}
         <Ionicons
@@ -173,6 +177,7 @@ const Timer = () => {
           color='white'
           size={50}
           onPress={() => advanceRound()}
+          testID='test'
         ></Ionicons>
       </Button>
       {debugMode && (
@@ -189,9 +194,9 @@ const Timer = () => {
     </View>
   ) : (
     <View style={styles.container}>
-      <Box style={styles.timeHeaderContainer}>
-        <Heading>{getRoundLoadingText(roundNumber)}</Heading>
-      </Box>
+      <View style={styles.timeHeaderContainer}>
+        <Headline>{getRoundLoadingText(roundNumber)}</Headline>
+      </View>
     </View>
   );
 };
@@ -207,12 +212,20 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    borderTopWidth: 4,
+    borderLeftWidth: 4,
+    borderRightWidth: 4,
+    borderColor: 'red',
+    height: 100,
   },
   timeHeader: {
     fontSize: 84,
     color: '#fff',
     marginBottom: 5,
     fontVariant: ['tabular-nums'],
+    borderLeftWidth: 4,
+    borderRightWidth: 4,
+    borderColor: 'blue',
   },
   starContainer: {
     display: 'flex',

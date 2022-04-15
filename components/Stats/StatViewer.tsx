@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Heading } from 'native-base';
-import { Text, StyleSheet } from 'react-native';
+import { Headline } from 'react-native-paper';
+import { Text, StyleSheet, View } from 'react-native';
 
 const StatViewer = () => {
   return (
-    <Box style={styles.container}>
-      <Heading style={styles.statsHeader}>7-Day Totals</Heading>
+    <View style={styles.container}>
+      <Headline style={styles.statsHeader}>7-Day Totals</Headline>
       <Text style={styles.statLabel}>
         Total Work Time:<Text style={styles.statText}>{}</Text>
       </Text>
@@ -18,7 +18,7 @@ const StatViewer = () => {
       <Text style={styles.statLabel}>
         Total Skips:<Text style={styles.statText}>{}</Text>
       </Text>
-    </Box>
+    </View>
   );
 };
 

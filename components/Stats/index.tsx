@@ -1,4 +1,4 @@
-import { Heading } from 'native-base';
+import { Headline } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Chart from './Chart';
@@ -9,7 +9,7 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <Heading style={styles.statsHeading}>Stats</Heading>
+      <Headline style={styles.statsHeading}>Stats</Headline>
       <Chart></Chart>
       <StatViewer />
     </View>

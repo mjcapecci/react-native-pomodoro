@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DarkTheme, NavigationContainer } from '@react-navigation/native';
-import { NativeBaseProvider } from 'native-base';
+import { Provider as PaperProvider } from 'react-native-paper';
 import Constants from 'expo-constants';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -24,7 +23,6 @@ Notifications.setNotificationHandler({
 });
 
 const App = () => {
-  const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
   const enableDevTools = Constants?.manifest?.extra?.enableDevTools;
 
@@ -41,8 +39,13 @@ const App = () => {
     getInitialPermissions();
   });
 
+  const inset = {
+    frame: { x: 0, y: 0, width: 0, height: 0 },
+    insets: { top: 0, left: 0, right: 0, bottom: 0 },
+  };
+
   return (
-    <NativeBaseProvider>
+    <PaperProvider>
       <NavigationContainer theme={DarkTheme}>
         <Tab.Navigator screenOptions={{ headerShown: false }}>
           <Tab.Screen
@@ -77,7 +80,7 @@ const App = () => {
           )}
         </Tab.Navigator>
       </NavigationContainer>
-    </NativeBaseProvider>
+    </PaperProvider>
   );
 };
 

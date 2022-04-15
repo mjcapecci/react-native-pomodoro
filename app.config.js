@@ -4,4 +4,7 @@ export default {
   extra: {
     enableDevTools: false,
   },
+  ios: {
+    bundleIdentifier: 'ios',
+  },
 };
