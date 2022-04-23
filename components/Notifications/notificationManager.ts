@@ -28,6 +28,6 @@ export const cancelAllNotifications = async () => {
   return await Notifications.cancelAllScheduledNotificationsAsync();
 };
 
-export const logNotifications = async () => {
+export const getNotifications = async () => {
   return await Notifications.getAllScheduledNotificationsAsync();
 };

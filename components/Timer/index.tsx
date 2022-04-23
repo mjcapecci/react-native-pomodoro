@@ -18,7 +18,6 @@ import {
 } from '../../utils/TimerUtils';
 
 const Timer = ({ test }: any) => {
-  console.log(test);
   const [enabled, setEnabled] = useState(true);
   const [startButtonEnabled, setStartButtonEnabled] = useState(true);
   const [timerActive, setTimerActive] = useState(false);

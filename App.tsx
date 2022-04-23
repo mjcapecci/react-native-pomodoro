@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -12,7 +12,11 @@ import DevTools from './components/DevTools';
 import createTable from './data_layer/createTable';
 
 import * as Notifications from 'expo-notifications';
-import { askPermissions } from './components/Notifications/notificationManager';
+import {
+  askPermissions,
+  cancelAllNotifications,
+  getNotifications,
+} from './components/Notifications/notificationManager';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -39,10 +43,16 @@ const App = () => {
     getInitialPermissions();
   });
 
-  const inset = {
-    frame: { x: 0, y: 0, width: 0, height: 0 },
-    insets: { top: 0, left: 0, right: 0, bottom: 0 },
-  };
+  // deletes existing notifications if any exist after full recycle of app
+  useMemo(() => {
+    (async () => {
+      const notifications = await getNotifications();
+      if (notifications.length !== 0) {
+        console.log('Notifications Canceled');
+        cancelAllNotifications();
+      }
+    })();
+  }, []);
 
   return (
     <PaperProvider>
