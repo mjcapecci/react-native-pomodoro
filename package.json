@@ -9,13 +9,15 @@
     "test": "jest",
     "test:watch": "npm run test --watch",
     "test:ci": "npm run test --coverage",
-    "test:badges": "npm run test:ci  && jest-coverage-badges --input coverage/coverage-summary.json --output __badges__"
+    "test:badges": "npm run test:ci  && jest-coverage-badges --input coverage/coverage-summary.json --output __badges__",
+    "commit": "cz"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.1",
+    "commitizen": "^4.2.4",
     "expo": "44.0.0",
     "expo-cli": "5.3.1",
     "expo-notifications": "~0.14.0",

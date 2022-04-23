@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { StyleSheet, View } from 'react-native';
-import { Headline, Button } from 'react-native-paper';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {
   scheduleNotification,
@@ -101,15 +101,14 @@ const Timer = ({ test }: any) => {
 
   return enabled || test ? (
     <View style={styles.container} testID={'play-button'}>
-      <Button>Test</Button>
       <View style={styles.timeHeaderContainer}>
-        <Headline style={styles.timeHeader}>
+        <Text style={styles.timeHeader}>
           {timerActive
             ? secondsLeft > 0
               ? fmtMSS(secondsLeft)
               : '0:00'
             : getNextRoundSecondsDisplay(roundNumber)}
-        </Headline>
+        </Text>
       </View>
       <View style={styles.starContainer}>
         <Ionicons
@@ -195,7 +194,10 @@ const Timer = ({ test }: any) => {
   ) : (
     <View style={styles.container}>
       <View style={styles.timeHeaderContainer}>
-        <Headline>{getRoundLoadingText(roundNumber)}</Headline>
+        <Text style={styles.loadingCaption}>
+          {getRoundLoadingText(roundNumber)}
+        </Text>
+        <ActivityIndicator size='large' color='#fff' />
       </View>
     </View>
   );
@@ -212,10 +214,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderTopWidth: 4,
-    borderLeftWidth: 4,
-    borderRightWidth: 4,
-    borderColor: 'red',
     height: 100,
   },
   timeHeader: {
@@ -243,6 +241,11 @@ const styles = StyleSheet.create({
   },
   hideSkip: {
     display: 'none',
+  },
+  loadingCaption: {
+    color: '#fff',
+    marginBottom: 25,
+    fontSize: 24,
   },
 });
 
