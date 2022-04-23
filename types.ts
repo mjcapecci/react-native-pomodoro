@@ -14,3 +14,9 @@ export interface UserRecord {
   /** Rating, 1-10 */
   date: Number;
 }
+
+export interface RoundData {
+  date: number;
+  roundNumber: number;
+  roundType: string;
+}
