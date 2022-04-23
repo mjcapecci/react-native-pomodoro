@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, AppState, StyleSheet, View } from 'react-native';
 import { Button, Text } from 'react-native-paper';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {
@@ -16,6 +16,7 @@ import {
   getRoundType,
   getSecondsReset,
 } from '../../utils/TimerUtils';
+import getTimeRemaining from '../../utils/getTimeRemaining';
 
 const Timer = ({ test }: any) => {
   const [enabled, setEnabled] = useState(true);
@@ -45,8 +46,12 @@ const Timer = ({ test }: any) => {
 
   useEffect(() => {
     if (timerActive && secondsLeft > -1) {
-      setTimeout(() => {
-        setSecondsLeft(secondsLeft - 1);
+      let timeRemaining: number;
+      (async () => {
+        timeRemaining = await getTimeRemaining();
+      })();
+      setTimeout(async () => {
+        setSecondsLeft(timeRemaining);
       }, 1000);
     } else {
       stopTimer();
@@ -98,17 +103,21 @@ const Timer = ({ test }: any) => {
     console.log(startTime);
   };
 
+  const activeTimerComponent = (
+    <>
+      <Text style={styles.timeHeader}>
+        {timerActive
+          ? secondsLeft > 0
+            ? fmtMSS(secondsLeft)
+            : '0:00'
+          : getNextRoundSecondsDisplay(roundNumber)}
+      </Text>
+    </>
+  );
+
   return enabled || test ? (
     <View style={styles.container} testID={'play-button'}>
-      <View style={styles.timeHeaderContainer}>
-        <Text style={styles.timeHeader}>
-          {timerActive
-            ? secondsLeft > 0
-              ? fmtMSS(secondsLeft)
-              : '0:00'
-            : getNextRoundSecondsDisplay(roundNumber)}
-        </Text>
-      </View>
+      <View style={styles.timeHeaderContainer}>{activeTimerComponent}</View>
       <View style={styles.starContainer}>
         <Ionicons
           name='hammer'
