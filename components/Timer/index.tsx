@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ActivityIndicator, AppState, StyleSheet, View } from 'react-native';
+import {
+  ActivityIndicator,
+  AppState,
+  AppStateStatus,
+  StyleSheet,
+  View,
+} from 'react-native';
 import { Button, Text } from 'react-native-paper';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {
@@ -25,15 +31,18 @@ const Timer = ({ test }: any) => {
   const [roundNumber, setRoundNumber] = useState(-1);
   const [roundType, setRoundType] = useState('work');
   const [secondsLeft, setSecondsLeft] = useState(1500);
+  const [appStateVisible, setAppStateVisible] = useState(true);
 
   const debugMode = false;
 
+  // When the timer status changes, this effect advances the round number.
   useEffect(() => {
     if (!timerActive) {
       advanceRound();
     }
   }, [timerActive]);
 
+  // This effect adds a slight delay to the start button to prevent a known race condition
   useEffect(() => {
     if (enabled) {
       setTimeout(() => {
@@ -44,14 +53,15 @@ const Timer = ({ test }: any) => {
     }
   }, [enabled]);
 
+  // This effect updates the display time every second
   useEffect(() => {
+    const fetchTime = async () => {
+      return await getTimeRemaining();
+    };
+
     if (timerActive && secondsLeft > -1) {
-      let timeRemaining: number;
-      (async () => {
-        timeRemaining = await getTimeRemaining();
-      })();
       setTimeout(async () => {
-        setSecondsLeft(timeRemaining);
+        setSecondsLeft(await fetchTime());
       }, 1000);
     } else {
       stopTimer();
@@ -59,6 +69,34 @@ const Timer = ({ test }: any) => {
       setEnabled(false);
     }
   }, [secondsLeft]);
+
+  async function handleAppStateChange(nextAppState: AppStateStatus) {
+    if (nextAppState === 'active') {
+      if (!appStateVisible) {
+        return setTimeout(async () => {
+          setSecondsLeft(await getTimeRemaining());
+          setAppStateVisible(true);
+        }, 1000);
+      }
+    }
+
+    if (nextAppState === 'inactive' || nextAppState === 'background') {
+      return setAppStateVisible(false);
+    }
+  }
+
+  // Detecting changes in AppState
+  useEffect(() => {
+    let subscription = AppState.addEventListener('change', (nextAppState) =>
+      handleAppStateChange(nextAppState)
+    );
+
+    return () => {
+      subscription = AppState.removeEventListener('change', (nextAppState) =>
+        handleAppStateChange(nextAppState)
+      );
+    };
+  }, [AppState.currentState]);
 
   const advanceRound = () => {
     const nextRound = getNextRound(roundNumber);
@@ -104,20 +142,22 @@ const Timer = ({ test }: any) => {
   };
 
   const activeTimerComponent = (
-    <>
-      <Text style={styles.timeHeader}>
-        {timerActive
-          ? secondsLeft > 0
-            ? fmtMSS(secondsLeft)
-            : '0:00'
-          : getNextRoundSecondsDisplay(roundNumber)}
-      </Text>
-    </>
+    <Text style={styles.timeHeader}>
+      {timerActive
+        ? secondsLeft > 0
+          ? fmtMSS(secondsLeft)
+          : '0:00'
+        : getNextRoundSecondsDisplay(roundNumber)}
+    </Text>
   );
+
+  const idleTimerComponent = <Text style={styles.timeHeader}>...</Text>;
 
   return enabled || test ? (
     <View style={styles.container} testID={'play-button'}>
-      <View style={styles.timeHeaderContainer}>{activeTimerComponent}</View>
+      <View style={styles.timeHeaderContainer}>
+        {appStateVisible ? activeTimerComponent : idleTimerComponent}
+      </View>
       <View style={styles.starContainer}>
         <Ionicons
           name='hammer'
