@@ -14,7 +14,7 @@ export default async function getTimeRemaining(currentSecondsLeft?: number) {
     const secondsLeft =
       getSecondsReset(roundData.roundType) -
       getMillisecondsInSeconds(getUnixTimeDifference(startTime, currentTime)) -
-      2;
+      1;
 
     if (currentSecondsLeft && currentSecondsLeft < secondsLeft) {
       return currentSecondsLeft;
