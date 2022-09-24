@@ -20,7 +20,6 @@ export default StyleSheet.create({
     fontVariant: ['tabular-nums'],
     borderLeftWidth: 4,
     borderRightWidth: 4,
-    borderColor: 'blue',
   },
   starContainer: {
     display: 'flex',

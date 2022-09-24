@@ -11,13 +11,38 @@ export const askPermissions = async () => {
   });
 };
 
-export const scheduleNotification = async (seconds: number) => {
+export const scheduleNotification = async (
+  seconds: number,
+  roundType: string
+) => {
+  let pendingContent;
+
+  switch (roundType) {
+    case 'work':
+      pendingContent = {
+        title: 'work round over',
+        body: 'Good job',
+      };
+      break;
+    case 'short_break':
+      pendingContent = {
+        title: 'work round over',
+        body: 'Break Over!',
+      };
+      break;
+    case 'long_break':
+      pendingContent = {
+        title: 'break round over',
+        body: 'Good job',
+      };
+      break;
+    default:
+      pendingContent = {};
+      break;
+  }
+
   return await Notifications.scheduleNotificationAsync({
-    content: {
-      title: 'Look at that notification',
-      body: "I'm so proud of myself!",
-      sound: 'pomo-marimba.mp3',
-    },
+    content: pendingContent,
     trigger: {
       seconds,
     },
