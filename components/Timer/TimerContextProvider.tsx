@@ -77,7 +77,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
 
     if (timerActive && secondsLeft > -1) {
       setTimeout(async () => {
-        setSecondsLeft(await fetchTime());
+        setSecondsLeft((await fetchTime()) ?? secondsLeft);
       }, 1000);
     } else {
       stopTimer();
@@ -91,7 +91,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
     if (nextAppState === 'active') {
       if (!appStateVisible) {
         return setTimeout(async () => {
-          setSecondsLeft(await getTimeRemaining());
+          setSecondsLeft((await getTimeRemaining()) ?? secondsLeft);
           setAppStateVisible(true);
         }, 1000);
       }
