@@ -75,6 +75,7 @@ exports[`renders timer component 1`] = `
     <Text />
   </View>
   <View
+    collapsable={false}
     style={
       Object {
         "backgroundColor": "#000",
@@ -85,6 +86,13 @@ exports[`renders timer component 1`] = `
         "elevation": 0,
         "marginTop": 30,
         "minWidth": 64,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0,
+        "shadowRadius": 0,
       }
     }
   >
@@ -92,7 +100,7 @@ exports[`renders timer component 1`] = `
       accessibilityRole="button"
       accessibilityState={
         Object {
-          "disabled": undefined,
+          "disabled": true,
         }
       }
       accessible={true}
