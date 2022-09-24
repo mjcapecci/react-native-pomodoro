@@ -3,21 +3,27 @@ import { RoundData } from '../types';
 import { getSecondsReset } from './TimerUtils';
 
 export default async function getTimeRemaining(currentSecondsLeft?: number) {
-  const roundData: RoundData = JSON.parse(
-    (await AsyncStorage.getItem('roundData')) ?? ''
-  );
-  const startTime = roundData.date;
-  const currentTime = new Date().getTime();
+  try {
+    const roundData: RoundData = JSON.parse(
+      (await AsyncStorage.getItem('roundData')) ?? ''
+    );
 
-  const secondsLeft =
-    getSecondsReset(roundData.roundType) -
-    getMillisecondsInSeconds(getUnixTimeDifference(startTime, currentTime)) -
-    2;
+    const startTime = roundData.date;
+    const currentTime = new Date().getTime();
 
-  if (currentSecondsLeft && currentSecondsLeft < secondsLeft) {
-    return currentSecondsLeft;
-  } else {
-    return secondsLeft;
+    const secondsLeft =
+      getSecondsReset(roundData.roundType) -
+      getMillisecondsInSeconds(getUnixTimeDifference(startTime, currentTime)) -
+      2;
+
+    if (currentSecondsLeft && currentSecondsLeft < secondsLeft) {
+      return currentSecondsLeft;
+    } else {
+      return secondsLeft;
+    }
+  } catch (error) {
+    // round was manually canceled if this block is hit
+    return;
   }
 }
 
