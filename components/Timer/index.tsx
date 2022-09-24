@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ActivityIndicator, View } from 'react-native';
 import { Button, Text } from 'react-native-paper';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -14,7 +13,11 @@ import {
 } from '../../utils/TimerUtils';
 import { TimerContext } from './TimerContextProvider';
 
-const Timer = ({ test }: any) => {
+interface TimerProps {
+  test: boolean;
+}
+
+const Timer = ({ test }: TimerProps) => {
   const time = useContext(TimerContext);
 
   const activeTimerComponent = (

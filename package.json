@@ -12,7 +12,31 @@
     "test:badges": "npm run test:ci  && jest-coverage-badges --input coverage/coverage-summary.json --output __badges__",
     "commit": "cz"
   },
+  "jest": {
+    "preset": "jest-expo",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
+    }
+  },
   "dependencies": {
+    "@babel/preset-env": "^7.19.1",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
@@ -41,8 +65,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@testing-library/react-native": "^11.1.0",
+    "@types/expo": "^33.0.1",
     "@types/jest": "^27.0.3",
-    "@types/react": "~16.9.35",
+    "@types/react": "^16.14.0",
     "@types/react-native": "~0.63.2",
     "@types/react-test-renderer": "^17.0.1",
     "cz-conventional-changelog": "^3.3.0",
@@ -52,7 +79,10 @@
     "jest-enzyme": "^7.1.2",
     "jest-expo": "^44.0.1",
     "react-test-renderer": "^17.0.2",
-    "typescript": "~4.0.0"
+    "ts-node": "^10.9.1",
+    "tslint": "^6.1.3",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^4.8.3"
   },
   "private": true,
   "config": {
