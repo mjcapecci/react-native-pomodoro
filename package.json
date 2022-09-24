@@ -13,27 +13,10 @@
     "commit": "cz"
   },
   "jest": {
-    "preset": "jest-expo",
-    "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "tsx"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfig": {
-          "jsx": "react"
-        }
-      }
-    }
+    "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   },
   "dependencies": {
     "@babel/preset-env": "^7.19.1",
@@ -41,9 +24,10 @@
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.1",
+    "babel-preset-expo": "^9.2.0",
     "commitizen": "^4.2.4",
     "expo": "^46.0.0",
-    "expo-cli": "5.3.1",
+    "expo-cli": "^6.0.5",
     "expo-notifications": "~0.16.1",
     "expo-permissions": "~13.2.0",
     "expo-sqlite": "~10.3.0",
@@ -69,15 +53,16 @@
     "@testing-library/react-native": "^11.1.0",
     "@types/expo": "^33.0.1",
     "@types/jest": "^27.0.3",
+    "@types/react": "~18.0.0",
     "@types/react-native": "^0.70.3",
-    "@types/react-test-renderer": "^17.0.1",
+    "@types/react-test-renderer": "^18.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-react-16-adapter-setup": "^0.1.0",
     "jest-enzyme": "^7.1.2",
     "jest-expo": "^46.0.0",
-    "react-test-renderer": "^17.0.2",
+    "react-test-renderer": "18.0.0",
     "ts-node": "^10.9.1",
     "tslint": "^6.1.3",
     "tslint-config-airbnb": "^5.11.2",
