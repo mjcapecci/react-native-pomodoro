@@ -132,7 +132,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
     };
 
     await AsyncStorage.setItem('roundData', JSON.stringify(roundData));
-    await scheduleNotification(secondsLeft);
+    await scheduleNotification(secondsLeft, roundData.roundType);
   };
 
   const startRound = () => {
