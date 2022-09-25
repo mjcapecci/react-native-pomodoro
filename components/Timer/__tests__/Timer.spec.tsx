@@ -1,8 +1,10 @@
 import React from 'react';
 import Timer from '..';
-import renderer from 'react-test-renderer';
+import { render, cleanup } from '@testing-library/react-native';
+
+afterEach(cleanup);
 
 test('renders timer component', () => {
-  const tree = renderer.create(<Timer test={true} />).toJSON();
+  const tree = render(<Timer test={true} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
