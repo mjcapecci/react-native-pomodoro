@@ -13,15 +13,11 @@ import {
 } from '../../utils/TimerUtils';
 import { TimerContext } from './TimerContextProvider';
 
-interface TimerProps {
-  test: boolean;
-}
-
-const Timer = ({ test }: TimerProps) => {
+const Timer = () => {
   const time = useContext(TimerContext);
 
   const activeTimerComponent = (
-    <Text style={styles.timeHeader}>
+    <Text style={styles.timeHeader} testID={'active-time-header'}>
       {time.timerActive
         ? time.secondsLeft > 0
           ? fmtMSS(time.secondsLeft)
@@ -30,9 +26,13 @@ const Timer = ({ test }: TimerProps) => {
     </Text>
   );
 
-  const idleTimerComponent = <Text style={styles.timeHeader}>...</Text>;
+  const idleTimerComponent = (
+    <Text style={styles.timeHeader} testID={'idle-time-header'}>
+      ...
+    </Text>
+  );
 
-  return time.enabled || test ? (
+  return time.enabled ? (
     <View style={styles.container} testID={'play-button'}>
       <View style={styles.timeHeaderContainer}>
         {time.appStateVisible ? activeTimerComponent : idleTimerComponent}
@@ -75,23 +75,29 @@ const Timer = ({ test }: TimerProps) => {
           style={styles.star}
         />
       </View>
-      <View style={styles.actionButton}>
+      <Button
+        style={styles.actionButton}
+        onPress={() => {
+          !time.timerActive ? time.startRound() : time.stopRound();
+        }}
+        testID={'main-action-button'}
+      >
         {!time.timerActive ? (
           <Ionicons
             name='play-circle-outline'
             color={time.startButtonEnabled ? 'white' : 'grey'}
             size={104}
-            onPress={() => time.startRound()}
+            testID={'play-button-icon'}
           ></Ionicons>
         ) : (
           <Ionicons
             name='stop-circle-outline'
             color='white'
             size={104}
-            onPress={() => time.stopRound()}
+            testID={'stop-button-icon'}
           ></Ionicons>
         )}
-      </View>
+      </Button>
       <Button style={!time.timerActive ? styles.skipButton : styles.hideSkip}>
         {' '}
         <Ionicons
@@ -99,7 +105,6 @@ const Timer = ({ test }: TimerProps) => {
           color='white'
           size={50}
           onPress={() => time.advanceRound()}
-          testID='test'
         ></Ionicons>
       </Button>
     </View>
