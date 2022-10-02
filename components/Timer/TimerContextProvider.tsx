@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, AppStateStatus } from 'react-native';
 import getTimeRemaining from '../../utils/getTimeRemaining';
 
-interface TimerContext {
+export interface TimerContextProps {
   enabled: boolean;
   startButtonEnabled: boolean;
   timerActive: boolean;
@@ -25,7 +25,7 @@ interface TimerContext {
   stopRound: () => void;
 }
 
-const TimerContext = createContext<TimerContext>({
+const TimerContext = createContext<TimerContextProps>({
   enabled: true,
   startButtonEnabled: true,
   timerActive: false,
@@ -109,9 +109,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
     );
 
     return () => {
-      subscription = AppState.removeEventListener('change', (nextAppState) =>
-        handleAppStateChange(nextAppState)
-      );
+      subscription.remove();
     };
   }, [AppState.currentState]);
 
