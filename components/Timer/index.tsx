@@ -98,13 +98,14 @@ const Timer = () => {
           ></Ionicons>
         )}
       </Button>
-      <Button style={!time.timerActive ? styles.skipButton : styles.hideSkip}>
-        {' '}
+      <Button
+        style={!time.timerActive ? styles.skipButton : styles.hideSkip}
+        onPress={() => time.advanceRound()}
+      >
         <Ionicons
           name='play-skip-forward-circle'
           color='white'
           size={50}
-          onPress={() => time.advanceRound()}
         ></Ionicons>
       </Button>
     </View>

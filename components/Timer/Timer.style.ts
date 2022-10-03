@@ -33,7 +33,6 @@ export default StyleSheet.create({
   },
   skipButton: {
     marginTop: 30,
-    backgroundColor: '#000',
   },
   hideSkip: {
     display: 'none',
