@@ -3,14 +3,15 @@ import {
   getNextRound,
   getRoundType,
   getSecondsReset,
-} from '../../utils/TimerUtils';
+} from './helpers/timerHelpers';
 import {
   scheduleNotification,
   cancelAllNotifications,
 } from '../Notifications/notificationManager';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, AppStateStatus } from 'react-native';
-import getTimeRemaining from '../../utils/getTimeRemaining';
+import getTimeRemaining from './helpers/getTimeRemaining';
+import { RoundData, RoundType } from '../../types';
 
 export interface TimerContextProps {
   enabled: boolean;
@@ -47,7 +48,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
   const [startButtonEnabled, setStartButtonEnabled] = useState(true);
   const [timerActive, setTimerActive] = useState(false);
   const [roundNumber, setRoundNumber] = useState(-1);
-  const [roundType, setRoundType] = useState('work');
+  const [roundType, setRoundType] = useState<RoundType>(RoundType.Work);
   const [secondsLeft, setSecondsLeft] = useState(1500);
   const [appStateVisible, setAppStateVisible] = useState(true);
 
@@ -123,7 +124,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
   };
 
   const startTimer = async () => {
-    const roundData = {
+    const roundData: RoundData = {
       date: new Date().getTime(),
       roundNumber: roundNumber,
       roundType: roundType,

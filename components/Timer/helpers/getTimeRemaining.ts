@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { RoundData } from '../types';
-import { getSecondsReset } from './TimerUtils';
+import { RoundData } from '../../../types';
+import { getSecondsReset } from './timerHelpers';
 
 export default async function getTimeRemaining(currentSecondsLeft?: number) {
   try {

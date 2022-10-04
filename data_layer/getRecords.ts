@@ -1,11 +1,18 @@
-import { openDatabase } from 'expo-sqlite';
+import { SQLResultSet } from 'expo-sqlite';
+import { openDatabase } from './config';
 
-const db = openDatabase('db.db');
+const db = openDatabase();
 
-export default async () => {
-  await db.transaction(async (tx) => {
-    return await tx.executeSql('SELECT * FROM records', [], (tx, results) => {
-      console.log(results);
+export default async (): Promise<SQLResultSet> => {
+  return new Promise((resolve, _reject) => {
+    db.transaction(async (tx) => {
+      await tx.executeSql(
+        'SELECT * FROM records',
+        [],
+        (_tx, results: SQLResultSet) => {
+          resolve(results);
+        }
+      );
     });
   });
 };

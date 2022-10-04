@@ -10,7 +10,7 @@ import {
   getIconColor,
   getNextRoundSecondsDisplay,
   getRoundLoadingText,
-} from '../../utils/TimerUtils';
+} from './helpers/timerHelpers';
 import { TimerContext } from './TimerContextProvider';
 
 const Timer = () => {
