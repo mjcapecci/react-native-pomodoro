@@ -10,8 +10,10 @@ import {
 } from '../Notifications/notificationManager';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, AppStateStatus } from 'react-native';
-import getTimeRemaining from './helpers/getTimeRemaining';
+import getTimeRemaining, { getRoundData } from './helpers/getTimeRemaining';
 import { RoundData, RoundType } from '../../types';
+import addRecord from '../../data_layer/addRecord';
+import shouldAddRecord from './helpers/shouldAddRecord';
 
 export interface TimerContextProps {
   enabled: boolean;
@@ -149,6 +151,15 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
   };
 
   const stopTimer = async () => {
+    const roundData: RoundData | undefined = await getRoundData();
+    if (await shouldAddRecord(roundData?.date ?? 0)) {
+      await addRecord({
+        date: roundData?.date ?? 0,
+        roundType: roundData?.roundType ?? RoundType.Work,
+        completed: secondsLeft < 0 ? 1 : 0,
+      });
+    }
+
     await AsyncStorage.removeItem('roundData');
     await cancelAllNotifications();
     await setTimeout(() => {

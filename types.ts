@@ -1,17 +1,11 @@
-/**
- * A user record that is recorded at the end of a Pomodoro session and saved in the SQLite database.
- *
- * @interface UserRecord
- * @id {String} Unique ID (guid) of database record
- * @date {Number} Date of record (starting date in epoch time)
- * @roundType {RoundData['roundType']} Type of round (Work, Short Break, Long Break)
- */
 export interface UserRecord {
-  id: String;
-  date: Number;
+  id: string;
+  date: number;
   roundType: RoundData['roundType'];
-  completed: Boolean;
+  completed: 0 | 1;
 }
+
+export type AddRecordProps = Omit<UserRecord, 'id'>;
 
 export enum RoundType {
   Work = 'work',

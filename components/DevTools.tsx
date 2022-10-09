@@ -6,13 +6,14 @@ import addRecord from '../data_layer/addRecord';
 import deleteAllRecords from '../data_layer/deleteAllRecords';
 import deleteDatabase from '../data_layer/deleteDatabase';
 import getRecords from '../data_layer/getRecords';
+import { RoundType, UserRecord } from '../types';
 
 const DevTools = () => {
   async function handleAddRecord() {
-    await addRecord();
+    await addRecord({ date: 12345, roundType: RoundType.Work, completed: 0 });
   }
 
-  async function handleDatabaseLog(): Promise<SQLResultSet | undefined> {
+  async function handleDatabaseLog(): Promise<UserRecord[] | undefined> {
     const records = await getRecords();
     console.log(records);
     return records ?? undefined;
@@ -30,16 +31,30 @@ const DevTools = () => {
     <View style={styles.container}>
       <Text style={styles.devText}>DevTools</Text>
       <View>
-        <Button onPress={() => handleAddRecord()}>Add Record</Button>
+        <Button onPress={() => handleAddRecord()} style={styles.devButton}>
+          Add Record
+        </Button>
       </View>
       <View>
-        <Button onPress={() => handleDatabaseLog()}>Log Database</Button>
+        <Button onPress={() => handleDatabaseLog()} style={styles.devButton}>
+          Log Database
+        </Button>
       </View>
       <View>
-        <Button onPress={() => handleDeleteAllRecords()}>Delete Records</Button>
+        <Button
+          onPress={() => handleDeleteAllRecords()}
+          style={styles.devButton}
+        >
+          Delete Records
+        </Button>
       </View>
       <View>
-        <Button onPress={() => handleDeleteRecordsTable()}>Delete Table</Button>
+        <Button
+          onPress={() => handleDeleteRecordsTable()}
+          style={styles.devButton}
+        >
+          Delete Table
+        </Button>
       </View>
     </View>
   );
@@ -53,6 +68,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     backgroundColor: '#000',
     color: '#fff',
+  },
+  devButton: {
+    backgroundColor: '#fff',
+    color: '#000',
   },
   devText: {
     color: '#fff',

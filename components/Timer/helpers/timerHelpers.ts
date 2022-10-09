@@ -2,6 +2,7 @@ import {
   ColorType,
   RoundType,
   TimerLoadingText,
+  TimerRoundSeconds,
   TimerRoundString,
 } from '../../../types';
 
@@ -49,11 +50,11 @@ export const getIconColor = (
 export const getSecondsReset = (roundType: RoundType): number => {
   switch (roundType) {
     case RoundType.Work:
-      return 1500;
+      return TimerRoundSeconds.Work;
     case RoundType.ShortBreak:
-      return 300;
+      return TimerRoundSeconds.ShortBreak;
     case RoundType.LongBreak:
-      return 1200;
+      return TimerRoundSeconds.LongBreak;
     default:
       return 0;
   }

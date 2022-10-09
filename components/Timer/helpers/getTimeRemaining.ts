@@ -27,6 +27,18 @@ export default async function getTimeRemaining(currentSecondsLeft?: number) {
   }
 }
 
+export const getRoundData = async () => {
+  try {
+    const roundData: RoundData = JSON.parse(
+      (await AsyncStorage.getItem('roundData')) ?? ' " "'
+    );
+    return roundData;
+  } catch (error) {
+    console.log(error);
+    return;
+  }
+};
+
 function getUnixTimeDifference(startTime: number, currentTime: number) {
   return currentTime - startTime;
 }
