@@ -3,14 +3,17 @@ import {
   getNextRound,
   getRoundType,
   getSecondsReset,
-} from '../../utils/TimerUtils';
+} from './helpers/timerHelpers';
 import {
   scheduleNotification,
   cancelAllNotifications,
 } from '../Notifications/notificationManager';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppState, AppStateStatus } from 'react-native';
-import getTimeRemaining from '../../utils/getTimeRemaining';
+import getTimeRemaining, { getRoundData } from './helpers/getTimeRemaining';
+import { RoundData, RoundType } from '../../types';
+import addRecord from '../../data_layer/addRecord';
+import shouldAddRecord from './helpers/shouldAddRecord';
 
 export interface TimerContextProps {
   enabled: boolean;
@@ -47,7 +50,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
   const [startButtonEnabled, setStartButtonEnabled] = useState(true);
   const [timerActive, setTimerActive] = useState(false);
   const [roundNumber, setRoundNumber] = useState(-1);
-  const [roundType, setRoundType] = useState('work');
+  const [roundType, setRoundType] = useState<RoundType>(RoundType.Work);
   const [secondsLeft, setSecondsLeft] = useState(1500);
   const [appStateVisible, setAppStateVisible] = useState(true);
 
@@ -123,7 +126,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
   };
 
   const startTimer = async () => {
-    const roundData = {
+    const roundData: RoundData = {
       date: new Date().getTime(),
       roundNumber: roundNumber,
       roundType: roundType,
@@ -148,6 +151,15 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
   };
 
   const stopTimer = async () => {
+    const roundData: RoundData | undefined = await getRoundData();
+    if (await shouldAddRecord(roundData?.date ?? 0)) {
+      await addRecord({
+        date: roundData?.date ?? 0,
+        roundType: roundData?.roundType ?? RoundType.Work,
+        completed: secondsLeft < 0 ? 1 : 0,
+      });
+    }
+
     await AsyncStorage.removeItem('roundData');
     await cancelAllNotifications();
     await setTimeout(() => {

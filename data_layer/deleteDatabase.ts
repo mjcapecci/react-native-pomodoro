@@ -4,6 +4,8 @@ const db = openDatabase();
 
 export default async () => {
   await db.transaction(async (tx) => {
-    return await tx.executeSql('DELETE FROM records WHERE id >= 1', []);
+    return await tx.executeSql('DROP TABLE records', [], (tx, results) => {
+      console.log(results);
+    });
   });
 };

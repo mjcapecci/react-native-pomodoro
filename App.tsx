@@ -32,7 +32,11 @@ const App = () => {
   const enableDevTools = Constants?.manifest?.extra?.enableDevTools;
 
   useEffect(() => {
-    createTable();
+    async function initializeSQLite() {
+      return await createTable();
+    }
+
+    initializeSQLite();
   }, []);
 
   // get initial notification permissions if not exist
@@ -86,7 +90,9 @@ const App = () => {
                 component={DevTools}
                 options={{
                   tabBarLabelPosition: 'beside-icon',
-                  tabBarIcon: () => <Ionicons name='code-outline' size={22} />,
+                  tabBarIcon: () => (
+                    <Ionicons name='code-outline' size={22} color='white' />
+                  ),
                 }}
               />
             )}

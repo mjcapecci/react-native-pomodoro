@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { RoundData } from '../types';
-import { getSecondsReset } from './TimerUtils';
+import { RoundData } from '../../../types';
+import { getSecondsReset } from './timerHelpers';
 
 export default async function getTimeRemaining(currentSecondsLeft?: number) {
   try {
@@ -26,6 +26,18 @@ export default async function getTimeRemaining(currentSecondsLeft?: number) {
     return;
   }
 }
+
+export const getRoundData = async () => {
+  try {
+    const roundData: RoundData = JSON.parse(
+      (await AsyncStorage.getItem('roundData')) ?? ' " "'
+    );
+    return roundData;
+  } catch (error) {
+    console.log(error);
+    return;
+  }
+};
 
 function getUnixTimeDifference(startTime: number, currentTime: number) {
   return currentTime - startTime;
