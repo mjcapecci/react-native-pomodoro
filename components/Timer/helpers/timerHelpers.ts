@@ -103,3 +103,9 @@ export const getRoundLoadingText = (roundNumber: number): TimerLoadingText => {
 export const fmtMSS = (s: number) => {
   return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s;
 };
+
+export const isTimerRoundSecondsType = (
+  seconds: number
+): seconds is TimerRoundSeconds => {
+  return Object.values(TimerRoundSeconds).includes(seconds);
+};

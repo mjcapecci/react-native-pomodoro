@@ -13,6 +13,7 @@ import {
   getNextRoundSecondsDisplay,
   fmtMSS,
   getRoundLoadingText,
+  isTimerRoundSecondsType,
 } from '../helpers/timerHelpers';
 
 // getNextRound
@@ -143,5 +144,24 @@ describe('fmtMSS returns a seconds number formatted for alarm clock time', () =>
   });
   it("0 returns '0:00'", () => {
     expect(fmtMSS(0)).toBe('0:00');
+  });
+});
+
+// isTimerRoundSecondsType
+describe('isTimerRoundSecondsType returns the correct boolean value', () => {
+  it('returns true for work round', () => {
+    expect(isTimerRoundSecondsType(TimerRoundSeconds.Work)).toBe(true);
+  });
+  it('returns true for short break round', () => {
+    expect(isTimerRoundSecondsType(TimerRoundSeconds.ShortBreak)).toBe(true);
+  });
+  it('returns true for long break round', () => {
+    expect(isTimerRoundSecondsType(TimerRoundSeconds.LongBreak)).toBe(true);
+  });
+  it('returns false for invalid round', () => {
+    expect(isTimerRoundSecondsType(0)).toBe(false);
+  });
+  it('returns false for random number', () => {
+    expect(isTimerRoundSecondsType(356)).toBe(false);
   });
 });
