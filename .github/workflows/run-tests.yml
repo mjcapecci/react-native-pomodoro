@@ -19,5 +19,8 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
+      - name: Lint Action
+        uses: wearerequired/lint-action@v2.1.0
+
       - name: Test
         run: yarn test

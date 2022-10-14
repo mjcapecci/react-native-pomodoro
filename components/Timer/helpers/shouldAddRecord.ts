@@ -1,5 +1,5 @@
-import getLastFiveRecords from '../../../data_layer/getLastFiveRecords';
-import { UserRecord } from '../../../types';
+import getLastFiveRecords from '../../../data_layer/getLastFiveRecords'
+import { UserRecord } from '../../../types'
 
 /*
   The function below is used to determine if a new record should be added to the database.
@@ -10,9 +10,9 @@ import { UserRecord } from '../../../types';
  */
 
 export default async (date: number): Promise<boolean> => {
-  const records = await getLastFiveRecords();
+  const records = await getLastFiveRecords()
   const recordsWithDuplicateDates = records.filter(
-    (record: UserRecord) => record.date === (date || date + 1 || date - 1)
-  );
-  return recordsWithDuplicateDates.length > 0 || date === 0 ? false : true;
-};
+    (record: UserRecord) => record.date === (date !== 0 || date + 1 !== 0 || date - 1),
+  )
+  return !(recordsWithDuplicateDates.length > 0 || date === 0)
+}

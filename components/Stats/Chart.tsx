@@ -1,12 +1,13 @@
-import React from 'react';
-import { LineChart } from 'react-native-chart-kit';
-import { Dimensions } from 'react-native';
+import React from 'react'
+import { LineChart } from 'react-native-chart-kit'
+import { Dimensions } from 'react-native'
+import { getWeekdayOrder } from './helpers/statsHelpers'
 
-const Chart = () => {
+const Chart = (): JSX.Element => {
   return (
     <LineChart
       data={{
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        labels: getWeekdayOrder(Math.round(Date.now() / 1000)),
         datasets: [
           {
             data: [
@@ -48,7 +49,7 @@ const Chart = () => {
         borderRadius: 0,
       }}
     ></LineChart>
-  );
-};
+  )
+}
 
-export default Chart;
+export default Chart

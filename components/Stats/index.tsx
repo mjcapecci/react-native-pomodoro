@@ -1,20 +1,18 @@
-import { Headline } from 'react-native-paper';
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
-import Chart from './Chart';
-import StatViewer from './StatViewer';
+import { Headline } from 'react-native-paper'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import Chart from './Chart'
+import StatViewer from './StatViewer'
 
-const Profile = () => {
-  const [chartOption, setChartOption] = useState('today');
-
+const Profile = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <Headline style={styles.statsHeading}>Stats</Headline>
       <Chart></Chart>
       <StatViewer />
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -30,6 +28,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
   },
-});
+})
 
-export default Profile;
+export default Profile
