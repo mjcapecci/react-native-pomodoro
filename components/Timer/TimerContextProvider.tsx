@@ -3,6 +3,7 @@ import {
   getNextRound,
   getRoundType,
   getSecondsReset,
+  isTimerRoundSecondsType,
 } from './helpers/timerHelpers';
 import {
   scheduleNotification,
@@ -54,10 +55,13 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
   const [secondsLeft, setSecondsLeft] = useState(1500);
   const [appStateVisible, setAppStateVisible] = useState(true);
 
+  const [initialAdvanceRound, setInitialAdvanceRound] = useState(false);
+
   // When the timer status changes, this effect advances the round number.
   useEffect(() => {
     if (!timerActive) {
       advanceRound();
+      setInitialAdvanceRound(true);
     }
   }, [timerActive]);
 
@@ -118,6 +122,14 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
 
   // ----- TIMER CONTROL METHODS -----
   const advanceRound = () => {
+    if (initialAdvanceRound && isTimerRoundSecondsType(secondsLeft)) {
+      addRecord({
+        date: new Date().getTime(),
+        roundType: roundType,
+        completed: 0,
+      });
+    }
+
     const nextRound = getNextRound(roundNumber);
     const nextRoundType = getRoundType(nextRound);
     setRoundNumber(nextRound);
