@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo } from 'react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { DarkTheme, NavigationContainer } from '@react-navigation/native'
 import { Provider as PaperProvider } from 'react-native-paper'
@@ -26,6 +27,9 @@ Notifications.setNotificationHandler({
     shouldSetBadge: false,
   }),
 })
+
+// Create a client
+const queryClient = new QueryClient()
 
 const App = (): JSX.Element => {
   const Tab = createBottomTabNavigator()
@@ -60,40 +64,42 @@ const App = (): JSX.Element => {
   }, [])
 
   return (
-    <PaperProvider>
-      <TimerContextProvider>
-        <NavigationContainer theme={DarkTheme}>
-          <Tab.Navigator screenOptions={{ headerShown: false }}>
-            <Tab.Screen
-              name='Timer'
-              component={Timer}
-              options={{
-                tabBarLabelPosition: 'beside-icon',
-                tabBarIcon: () => <Ionicons name='timer-outline' size={22} color='white' />,
-              }}
-            />
-            <Tab.Screen
-              name='Stats'
-              component={Stats}
-              options={{
-                tabBarLabelPosition: 'beside-icon',
-                tabBarIcon: () => <Ionicons name='stats-chart' size={22} color='white' />,
-              }}
-            />
-            {Boolean(enableDevTools) && (
+    <QueryClientProvider client={queryClient}>
+      <PaperProvider>
+        <TimerContextProvider>
+          <NavigationContainer theme={DarkTheme}>
+            <Tab.Navigator screenOptions={{ headerShown: false }}>
               <Tab.Screen
-                name='Tools'
-                component={DevTools}
+                name='Timer'
+                component={Timer}
                 options={{
                   tabBarLabelPosition: 'beside-icon',
-                  tabBarIcon: () => <Ionicons name='code-outline' size={22} color='white' />,
+                  tabBarIcon: () => <Ionicons name='timer-outline' size={22} color='white' />,
                 }}
               />
-            )}
-          </Tab.Navigator>
-        </NavigationContainer>
-      </TimerContextProvider>
-    </PaperProvider>
+              <Tab.Screen
+                name='Stats'
+                component={Stats}
+                options={{
+                  tabBarLabelPosition: 'beside-icon',
+                  tabBarIcon: () => <Ionicons name='stats-chart' size={22} color='white' />,
+                }}
+              />
+              {Boolean(enableDevTools) && (
+                <Tab.Screen
+                  name='Tools'
+                  component={DevTools}
+                  options={{
+                    tabBarLabelPosition: 'beside-icon',
+                    tabBarIcon: () => <Ionicons name='code-outline' size={22} color='white' />,
+                  }}
+                />
+              )}
+            </Tab.Navigator>
+          </NavigationContainer>
+        </TimerContextProvider>
+      </PaperProvider>
+    </QueryClientProvider>
   )
 }
 
