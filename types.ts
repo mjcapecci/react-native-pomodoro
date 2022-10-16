@@ -1,11 +1,11 @@
 export interface UserRecord {
-  id: string;
-  date: number;
-  roundType: RoundData['roundType'];
-  completed: 0 | 1;
+  id: string
+  date: number
+  type: RoundData['roundType']
+  completed: 0 | 1
 }
 
-export type AddRecordProps = Omit<UserRecord, 'id'>;
+export type AddRecordProps = Omit<UserRecord, 'id'>
 
 export enum RoundType {
   Work = 'work',
@@ -41,7 +41,7 @@ export enum ColorType {
 }
 
 export interface RoundData {
-  date: number;
-  roundNumber: number;
-  roundType: RoundType;
+  date: number
+  roundNumber: number
+  roundType: RoundType
 }

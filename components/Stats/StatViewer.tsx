@@ -1,8 +1,8 @@
-import React from 'react';
-import { Headline } from 'react-native-paper';
-import { Text, StyleSheet, View } from 'react-native';
+import React from 'react'
+import { Headline } from 'react-native-paper'
+import { Text, StyleSheet, View } from 'react-native'
 
-const StatViewer = () => {
+const StatViewer = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <Headline style={styles.statsHeader}>7-Day Totals</Headline>
@@ -19,8 +19,8 @@ const StatViewer = () => {
         Total Skips:<Text style={styles.statText}>{}</Text>
       </Text>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
   statText: {
     color: '#fff',
   },
-});
+})
 
-export default StatViewer;
+export default StatViewer

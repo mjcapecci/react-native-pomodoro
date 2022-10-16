@@ -1,20 +1,33 @@
-import { Headline } from 'react-native-paper';
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
-import Chart from './Chart';
-import StatViewer from './StatViewer';
+import { Headline } from 'react-native-paper'
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, View } from 'react-native'
+import Chart from './Chart'
+import StatViewer from './StatViewer'
+import { getSevenDaysAgo, getWorkTimePerDay } from './helpers/statsHelpers'
+import getLastSevenDays from '../../data_layer/getLastSevenDays'
+import { UserRecord } from '../../types'
 
-const Profile = () => {
-  const [chartOption, setChartOption] = useState('today');
+const Stats = (): JSX.Element => {
+  const [records, setRecords] = useState<UserRecord[]>([])
+
+  useEffect(() => {
+    const fetchRecords = async (): Promise<UserRecord[]> => {
+      return await getLastSevenDays(getSevenDaysAgo(new Date().getTime()))
+    }
+
+    fetchRecords()
+      .then((data) => setRecords(data))
+      .catch((err) => console.log(err))
+  }, [])
 
   return (
     <View style={styles.container}>
       <Headline style={styles.statsHeading}>Stats</Headline>
-      <Chart></Chart>
+      <Chart dataset={getWorkTimePerDay(records, new Date().getTime()) ?? []} />
       <StatViewer />
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -30,6 +43,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
   },
-});
+})
 
-export default Profile;
+export default Stats

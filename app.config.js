@@ -7,4 +7,4 @@ export default {
   ios: {
     bundleIdentifier: 'ios',
   },
-};
+}

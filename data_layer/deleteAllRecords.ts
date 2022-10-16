@@ -1,9 +1,9 @@
-import { openDatabase } from './config';
+import { openDatabase } from './config'
 
-const db = openDatabase();
+const db = openDatabase()
 
-export default async () => {
+export default async (): Promise<void> => {
   await db.transaction(async (tx) => {
-    return await tx.executeSql('DELETE FROM records WHERE id >= 1', []);
-  });
-};
+    await tx.executeSql('DELETE FROM records WHERE id >= 1', [])
+  })
+}

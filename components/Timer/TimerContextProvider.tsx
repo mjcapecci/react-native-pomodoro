@@ -1,186 +1,169 @@
-import React, { createContext, useEffect, useState } from 'react';
-import {
-  getNextRound,
-  getRoundType,
-  getSecondsReset,
-  isTimerRoundSecondsType,
-} from './helpers/timerHelpers';
-import {
-  scheduleNotification,
-  cancelAllNotifications,
-} from '../Notifications/notificationManager';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AppState, AppStateStatus } from 'react-native';
-import getTimeRemaining, { getRoundData } from './helpers/getTimeRemaining';
-import { RoundData, RoundType } from '../../types';
-import addRecord from '../../data_layer/addRecord';
-import shouldAddRecord from './helpers/shouldAddRecord';
+import React, { createContext, useCallback, useEffect, useState } from 'react'
+import { getNextRound, getRoundType, getSecondsReset } from './helpers/timerHelpers'
+import { scheduleNotification, cancelAllNotifications } from '../Notifications/notificationManager'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { AppState, AppStateStatus } from 'react-native'
+import getTimeRemaining, { getRoundData } from './helpers/getTimeRemaining'
+import { RoundData, RoundType } from '../../types'
+import addRecord from '../../data_layer/addRecord'
+import shouldAddRecord from './helpers/shouldAddRecord'
 
 export interface TimerContextProps {
-  enabled: boolean;
-  startButtonEnabled: boolean;
-  timerActive: boolean;
-  roundNumber: number;
-  roundType: string;
-  secondsLeft: number;
-  appStateVisible: boolean;
-  advanceRound: () => void;
-  startRound: () => void;
-  stopRound: () => void;
+  enabled: boolean
+  startButtonEnabled: boolean
+  timerActive: boolean
+  roundNumber: number
+  roundType: string
+  secondsLeft: number
+  appStateVisible: boolean
+  advanceRound: () => void
+  startRound: () => void
+  stopRound: () => void
 }
 
 const TimerContext = createContext<TimerContextProps>({
   enabled: true,
   startButtonEnabled: true,
   timerActive: false,
-  roundNumber: -1,
+  roundNumber: 0,
   roundType: 'work',
   secondsLeft: 1500,
   appStateVisible: true,
   advanceRound: () => null,
   startRound: () => null,
   stopRound: () => null,
-});
+})
 
 interface TimerContextProviderProps {
-  children: JSX.Element;
+  children: JSX.Element
 }
 
-function TimerContextProvider({ children }: TimerContextProviderProps) {
-  const [enabled, setEnabled] = useState(true);
-  const [startButtonEnabled, setStartButtonEnabled] = useState(true);
-  const [timerActive, setTimerActive] = useState(false);
-  const [roundNumber, setRoundNumber] = useState(-1);
-  const [roundType, setRoundType] = useState<RoundType>(RoundType.Work);
-  const [secondsLeft, setSecondsLeft] = useState(1500);
-  const [appStateVisible, setAppStateVisible] = useState(true);
+function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Element {
+  const [enabled, setEnabled] = useState(true)
+  const [startButtonEnabled, setStartButtonEnabled] = useState(true)
+  const [timerActive, setTimerActive] = useState(false)
+  const [roundNumber, setRoundNumber] = useState(0)
+  const [roundType, setRoundType] = useState<RoundType>(RoundType.Work)
+  const [secondsLeft, setSecondsLeft] = useState(1500)
+  const [appStateVisible, setAppStateVisible] = useState(true)
 
-  const [initialAdvanceRound, setInitialAdvanceRound] = useState(false);
+  // ----- TIMER CONTROL METHODS -----
+  const advanceRound = useCallback((): void => {
+    const nextRound = getNextRound(roundNumber)
+    const nextRoundType = getRoundType(nextRound)
+    setRoundNumber(nextRound)
+    setRoundType(nextRoundType)
+    setSecondsLeft(getSecondsReset(nextRoundType))
+  }, [roundNumber])
 
-  // When the timer status changes, this effect advances the round number.
-  useEffect(() => {
-    if (!timerActive) {
-      advanceRound();
-      setInitialAdvanceRound(true);
+  const startTimer = async (): Promise<void> => {
+    const roundData: RoundData = {
+      date: new Date().getTime(),
+      roundNumber,
+      roundType,
     }
-  }, [timerActive]);
+
+    await AsyncStorage.setItem('roundData', JSON.stringify(roundData))
+    await scheduleNotification(secondsLeft)
+  }
+
+  const startRound = async (): Promise<void> => {
+    if (enabled && startButtonEnabled) {
+      setTimerActive(true)
+      setSecondsLeft(secondsLeft - 1)
+      await startTimer()
+    }
+  }
+
+  const stopRound = async (): Promise<void> => {
+    setTimerActive(false)
+    setEnabled(false)
+    await stopTimer()
+  }
+
+  const stopTimer = async (): Promise<void> => {
+    const roundData: RoundData | undefined = await getRoundData()
+
+    if (timerActive) {
+      advanceRound()
+    }
+
+    if (await shouldAddRecord(roundData?.date ?? 0)) {
+      await addRecord({
+        date: roundData?.date ?? 0,
+        type: roundData?.roundType ?? RoundType.Work,
+        completed: secondsLeft < 0 ? 1 : 0,
+      })
+    }
+
+    await AsyncStorage.removeItem('roundData')
+    await cancelAllNotifications()
+    await setTimeout(() => {
+      setSecondsLeft(getSecondsReset(getRoundType(getNextRound(roundNumber - 1))))
+      setEnabled(true)
+    }, 1000)
+  }
 
   // This effect adds a slight delay to the start button to prevent a known race condition
   useEffect(() => {
     if (enabled) {
       setTimeout(() => {
-        setStartButtonEnabled(true);
-      }, 1000);
+        setStartButtonEnabled(true)
+      }, 1000)
     } else {
-      setStartButtonEnabled(false);
+      setStartButtonEnabled(false)
     }
-  }, [enabled]);
+  }, [enabled])
 
   // This effect updates the display time every second
   useEffect(() => {
-    const fetchTime = async () => {
-      return await getTimeRemaining();
-    };
+    const fetchTime = async (): Promise<number> => {
+      return await getTimeRemaining()
+    }
 
     if (timerActive && secondsLeft > -1) {
       setTimeout(async () => {
-        setSecondsLeft((await fetchTime()) ?? secondsLeft);
-      }, 1000);
+        setSecondsLeft((await fetchTime()) ?? secondsLeft)
+      }, 1000)
     } else {
-      stopTimer();
-      setTimerActive(false);
-      setEnabled(false);
+      void (async () => {
+        await stopTimer()
+      })()
+      setTimerActive(false)
+      setEnabled(false)
     }
-  }, [secondsLeft]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [secondsLeft])
 
-  // Triggered by the useEffect that runs when app state changes
-  async function handleAppStateChange(nextAppState: AppStateStatus) {
-    if (nextAppState === 'active') {
-      if (!appStateVisible) {
-        return setTimeout(async () => {
-          setSecondsLeft((await getTimeRemaining()) ?? secondsLeft);
-          setAppStateVisible(true);
-        }, 1000);
+  const handleAppStateChange = useCallback(
+    async (nextAppState: AppStateStatus): Promise<void> => {
+      if (nextAppState === 'active') {
+        if (!appStateVisible) {
+          setTimeout(async () => {
+            setSecondsLeft((await getTimeRemaining()) ?? secondsLeft)
+            setAppStateVisible(true)
+          }, 1000)
+        }
       }
-    }
 
-    if (nextAppState === 'inactive' || nextAppState === 'background') {
-      return setAppStateVisible(false);
-    }
-  }
+      if (nextAppState === 'inactive' || nextAppState === 'background') {
+        return setAppStateVisible(false)
+      }
+    },
+    [appStateVisible, secondsLeft],
+  )
 
   // Detecting changes in AppState
   useEffect(() => {
-    let subscription = AppState.addEventListener('change', (nextAppState) =>
-      handleAppStateChange(nextAppState)
-    );
+    const subscription = AppState.addEventListener(
+      'change',
+      async (nextAppState) => await handleAppStateChange(nextAppState),
+    )
 
     return () => {
-      subscription.remove();
-    };
-  }, [AppState.currentState]);
-
-  // ----- TIMER CONTROL METHODS -----
-  const advanceRound = () => {
-    if (initialAdvanceRound && isTimerRoundSecondsType(secondsLeft)) {
-      addRecord({
-        date: new Date().getTime(),
-        roundType: roundType,
-        completed: 0,
-      });
+      subscription.remove()
     }
-
-    const nextRound = getNextRound(roundNumber);
-    const nextRoundType = getRoundType(nextRound);
-    setRoundNumber(nextRound);
-    setRoundType(nextRoundType);
-    setSecondsLeft(getSecondsReset(nextRoundType));
-  };
-
-  const startTimer = async () => {
-    const roundData: RoundData = {
-      date: new Date().getTime(),
-      roundNumber: roundNumber,
-      roundType: roundType,
-    };
-
-    await AsyncStorage.setItem('roundData', JSON.stringify(roundData));
-    await scheduleNotification(secondsLeft);
-  };
-
-  const startRound = () => {
-    if (enabled && startButtonEnabled) {
-      setTimerActive(true);
-      setSecondsLeft(secondsLeft - 1);
-      startTimer();
-    }
-  };
-
-  const stopRound = () => {
-    setTimerActive(false);
-    setEnabled(false);
-    stopTimer();
-  };
-
-  const stopTimer = async () => {
-    const roundData: RoundData | undefined = await getRoundData();
-    if (await shouldAddRecord(roundData?.date ?? 0)) {
-      await addRecord({
-        date: roundData?.date ?? 0,
-        roundType: roundData?.roundType ?? RoundType.Work,
-        completed: secondsLeft < 0 ? 1 : 0,
-      });
-    }
-
-    await AsyncStorage.removeItem('roundData');
-    await cancelAllNotifications();
-    await setTimeout(() => {
-      setSecondsLeft(
-        getSecondsReset(getRoundType(getNextRound(roundNumber - 1)))
-      );
-      setEnabled(true);
-    }, 1000);
-  };
+  }, [handleAppStateChange])
 
   return (
     <TimerContext.Provider
@@ -199,7 +182,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps) {
     >
       {children}
     </TimerContext.Provider>
-  );
+  )
 }
 
-export { TimerContext, TimerContextProvider };
+export { TimerContext, TimerContextProvider }
