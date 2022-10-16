@@ -91,7 +91,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     if (await shouldAddRecord(roundData?.date ?? 0)) {
       await addRecord({
         date: roundData?.date ?? 0,
-        roundType: roundData?.roundType ?? RoundType.Work,
+        type: roundData?.roundType ?? RoundType.Work,
         completed: secondsLeft < 0 ? 1 : 0,
       })
     }

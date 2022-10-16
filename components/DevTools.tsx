@@ -9,7 +9,7 @@ import { RoundType, UserRecord } from '../types'
 
 const DevTools = (): JSX.Element => {
   async function handleAddRecord(): Promise<void> {
-    await addRecord({ date: 12345, roundType: RoundType.Work, completed: 0 })
+    await addRecord({ date: 1665291600000, type: RoundType.Work, completed: 1 })
   }
 
   async function handleDatabaseLog(): Promise<UserRecord[] | undefined> {

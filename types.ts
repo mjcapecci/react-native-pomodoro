@@ -1,7 +1,7 @@
 export interface UserRecord {
   id: string
   date: number
-  roundType: RoundData['roundType']
+  type: RoundData['roundType']
   completed: 0 | 1
 }
 
