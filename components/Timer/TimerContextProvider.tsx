@@ -7,6 +7,7 @@ import getTimeRemaining, { getRoundData } from './helpers/getTimeRemaining'
 import { RoundData, RoundType } from '../../types'
 import addRecord from '../../data_layer/addRecord'
 import shouldAddRecord from './helpers/shouldAddRecord'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 export interface TimerContextProps {
   enabled: boolean
@@ -46,6 +47,15 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
   const [roundType, setRoundType] = useState<RoundType>(RoundType.Work)
   const [secondsLeft, setSecondsLeft] = useState(1500)
   const [appStateVisible, setAppStateVisible] = useState(true)
+
+  // React Query
+  const queryClient = useQueryClient()
+
+  const mutation = useMutation(addRecord, {
+    onSuccess: () => {
+      void queryClient.invalidateQueries(['records'])
+    },
+  })
 
   // ----- TIMER CONTROL METHODS -----
   const advanceRound = useCallback((): void => {
@@ -89,7 +99,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     }
 
     if (await shouldAddRecord(roundData?.date ?? 0)) {
-      await addRecord({
+      await mutation.mutateAsync({
         date: roundData?.date ?? 0,
         type: roundData?.roundType ?? RoundType.Work,
         completed: secondsLeft < 0 ? 1 : 0,
