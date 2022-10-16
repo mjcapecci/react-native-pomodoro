@@ -12,7 +12,8 @@ import { UserRecord } from '../../../types'
 export default async (date: number): Promise<boolean> => {
   const records = await getLastFiveRecords()
   const recordsWithDuplicateDates = records.filter(
-    (record: UserRecord) => record.date === (date !== 0 || date + 1 !== 0 || date - 1),
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    (record: UserRecord) => record.date === (date || date + 1 || date - 1),
   )
   return !(recordsWithDuplicateDates.length > 0 || date === 0)
 }
