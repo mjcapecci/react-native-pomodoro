@@ -12,8 +12,6 @@ import {
   getWorkTimePerDay,
 } from '../helpers/statsHelpers'
 
-process.env.TZ = 'UTC'
-
 // getWeekday
 describe('getWeekday', () => {
   it('returns the correct weekday', () => {
@@ -43,18 +41,18 @@ describe('getWeekdayOrder', () => {
 // getBaseDayMilliseconds
 describe('getBaseDayMilliseconds', () => {
   it('returns the correct base day seconds', () => {
-    expect(getBaseDayMilliseconds(1665403200)).toBe(1665378000000)
-    expect(getBaseDayMilliseconds(1665489600)).toBe(1665464400000)
-    expect(getBaseDayMilliseconds(1665921600)).toBe(1665896400000)
+    expect(getBaseDayMilliseconds(1665403200)).toBe(1665360000000)
+    expect(getBaseDayMilliseconds(1665489600)).toBe(1665446400000)
+    expect(getBaseDayMilliseconds(1665921600)).toBe(1665878400000)
   })
 })
 
 // getSevensDaysAgo
 describe('getSevensDaysAgo', () => {
   it('returns the correct seconds for seven days ago', () => {
-    expect(getSevenDaysAgo(1665403200000)).toBe(1664773200000)
-    expect(getSevenDaysAgo(1665489600000)).toBe(1664859600000)
-    expect(getSevenDaysAgo(1665921600000)).toBe(1665291600000)
+    expect(getSevenDaysAgo(1665403200000)).toBe(1664755200000)
+    expect(getSevenDaysAgo(1665489600000)).toBe(1664841600000)
+    expect(getSevenDaysAgo(1665921600000)).toBe(1665273600000)
   })
 })
 
