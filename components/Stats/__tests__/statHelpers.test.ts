@@ -12,6 +12,8 @@ import {
   getWorkTimePerDay,
 } from '../helpers/statsHelpers'
 
+process.env.TZ = 'UTC'
+
 // getWeekday
 describe('getWeekday', () => {
   it('returns the correct weekday', () => {
