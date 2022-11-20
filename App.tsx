@@ -19,6 +19,7 @@ import {
   getNotifications,
 } from './components/Notifications/notificationManager'
 import { TimerContextProvider } from './components/Timer/TimerContextProvider'
+import AppContextProvider from './components/General/AppContextProvider'
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -65,40 +66,42 @@ const App = (): JSX.Element => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <PaperProvider>
-        <TimerContextProvider>
-          <NavigationContainer theme={DarkTheme}>
-            <Tab.Navigator screenOptions={{ headerShown: false }}>
-              <Tab.Screen
-                name='Timer'
-                component={Timer}
-                options={{
-                  tabBarLabelPosition: 'beside-icon',
-                  tabBarIcon: () => <Ionicons name='timer-outline' size={22} color='white' />,
-                }}
-              />
-              <Tab.Screen
-                name='Stats'
-                component={Stats}
-                options={{
-                  tabBarLabelPosition: 'beside-icon',
-                  tabBarIcon: () => <Ionicons name='stats-chart' size={22} color='white' />,
-                }}
-              />
-              {Boolean(enableDevTools) && (
+      <AppContextProvider>
+        <PaperProvider>
+          <TimerContextProvider>
+            <NavigationContainer theme={DarkTheme}>
+              <Tab.Navigator screenOptions={{ headerShown: false }}>
                 <Tab.Screen
-                  name='Tools'
-                  component={DevTools}
+                  name='Timer'
+                  component={Timer}
                   options={{
                     tabBarLabelPosition: 'beside-icon',
-                    tabBarIcon: () => <Ionicons name='code-outline' size={22} color='white' />,
+                    tabBarIcon: () => <Ionicons name='timer-outline' size={22} color='white' />,
                   }}
                 />
-              )}
-            </Tab.Navigator>
-          </NavigationContainer>
-        </TimerContextProvider>
-      </PaperProvider>
+                <Tab.Screen
+                  name='Stats'
+                  component={Stats}
+                  options={{
+                    tabBarLabelPosition: 'beside-icon',
+                    tabBarIcon: () => <Ionicons name='stats-chart' size={22} color='white' />,
+                  }}
+                />
+                {Boolean(enableDevTools) && (
+                  <Tab.Screen
+                    name='Tools'
+                    component={DevTools}
+                    options={{
+                      tabBarLabelPosition: 'beside-icon',
+                      tabBarIcon: () => <Ionicons name='code-outline' size={22} color='white' />,
+                    }}
+                  />
+                )}
+              </Tab.Navigator>
+            </NavigationContainer>
+          </TimerContextProvider>
+        </PaperProvider>
+      </AppContextProvider>
     </QueryClientProvider>
   )
 }
