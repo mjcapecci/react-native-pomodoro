@@ -3,7 +3,7 @@ export default {
   version: '0.1',
   extra: {
     enableDevTools: true,
-    environment: 'staging',
+    environment: 'development',
   },
   ios: {
     bundleIdentifier: 'ios',
