@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
+import { useAsyncStorage } from '@react-native-async-storage/async-storage'
 import { Button } from 'react-native-paper'
 import addRecord from '../data_layer/addRecord'
 import deleteAllRecords from '../data_layer/deleteAllRecords'
@@ -8,6 +9,13 @@ import getRecords from '../data_layer/getRecords'
 import { RoundType, UserRecord } from '../types'
 
 const DevTools = (): JSX.Element => {
+  const lastCheckTime = useAsyncStorage('lastCheckTime')
+
+  const logLastCheckTime = async (): Promise<void> => {
+    const time = await lastCheckTime.getItem()
+    console.log(time)
+  }
+
   async function handleAddRecord(): Promise<void> {
     await addRecord({ date: 1665291600000, type: RoundType.Work, completed: 1 })
   }
@@ -29,6 +37,11 @@ const DevTools = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <Text style={styles.devText}>DevTools</Text>
+      <View>
+        <Button onPress={async () => await logLastCheckTime()} style={styles.devButton}>
+          Log Last Check Time
+        </Button>
+      </View>
       <View>
         <Button onPress={async () => await handleAddRecord()} style={styles.devButton}>
           Add Record
