@@ -15,8 +15,8 @@ const Chart = ({ dataset }: ChartProps): JSX.Element => {
         datasets: [
           {
             data: dataset,
-            color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
             strokeWidth: 3, // optional
+            strokeDashArray: [5, 5], // optional
           },
         ],
       }}

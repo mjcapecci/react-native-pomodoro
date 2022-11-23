@@ -15,7 +15,7 @@ const Stats = (): JSX.Element => {
     <View style={styles.container}>
       <Headline style={styles.statsHeading}>Stats</Headline>
       <Chart dataset={getWorkTimePerDay(query.data ?? [], new Date().getTime()) ?? []} />
-      <StatViewer />
+      <StatViewer dataset={query?.data} />
     </View>
   )
 }
