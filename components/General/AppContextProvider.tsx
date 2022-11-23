@@ -8,7 +8,7 @@ interface State {
   setShowNewVersionModal: (show: boolean) => void
 }
 
-const appState: State = {
+const initialAppState: State = {
   appVersion: '0.1', // update here whenever a new version is released
   showNewVersionModal: false,
   setShowNewVersionModal: () => null,
@@ -19,14 +19,22 @@ interface AppVersionResponse {
   updates: string[]
 }
 
-const AppContext = React.createContext({ ...appState })
+const AppContext = React.createContext({ ...initialAppState })
 
 interface AppContextProviderProps {
   children: JSX.Element
 }
 
-export default function AppContextProvider({ children }: AppContextProviderProps): JSX.Element {
+function AppContextProvider({ children }: AppContextProviderProps): JSX.Element {
   const [lastVersionCheckTime, setLastVersionCheckTime] = React.useState<number>(0)
+  const [showNewVersionModal, setShowNewVersionModal] = React.useState<boolean>(false)
+
+  const environment = Constants?.manifest?.extra?.environment
+
+  const shouldFetchAppVersion =
+    lastVersionCheckTime !== 0 &&
+    Date.now() - lastVersionCheckTime > 7200000 &&
+    (environment === 'production' || environment === 'staging')
 
   React.useEffect(() => {
     async function updateLastVersionCheckTime(): Promise<void> {
@@ -36,8 +44,6 @@ export default function AppContextProvider({ children }: AppContextProviderProps
     updateLastVersionCheckTime().catch((err) => console.log(err))
   }, [])
 
-  const environment = Constants?.manifest?.extra?.environment
-
   React.useEffect(() => {
     const fetchAppVersion = async (): Promise<AppVersionResponse> => {
       const response = await fetch('https://mobile-apps-api.vercel.app/api/version')
@@ -45,21 +51,28 @@ export default function AppContextProvider({ children }: AppContextProviderProps
       return data
     }
 
-    const shouldFetchAppVersion =
-      lastVersionCheckTime !== 0 &&
-      Date.now() - lastVersionCheckTime > 7200000 &&
-      (environment === 'production' || environment === 'staging')
-
     if (shouldFetchAppVersion) {
       fetchAppVersion()
         .then((data) => {
-          if (data.version !== appState.appVersion) {
-            appState.setShowNewVersionModal(true)
+          if (data.version !== initialAppState.appVersion) {
+            setShowNewVersionModal(true)
           }
         })
         .catch((err) => console.log(err))
     }
-  }, [environment, lastVersionCheckTime])
+  }, [environment, lastVersionCheckTime, shouldFetchAppVersion])
 
-  return <AppContext.Provider value={appState}>{children}</AppContext.Provider>
+  return (
+    <AppContext.Provider
+      value={{
+        appVersion: initialAppState.appVersion,
+        showNewVersionModal,
+        setShowNewVersionModal,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  )
 }
+
+export { AppContext, AppContextProvider }
