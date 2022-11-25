@@ -3,8 +3,9 @@ export default {
   version: '0.1',
   extra: {
     enableDevTools: false,
+    environment: 'development',
   },
   ios: {
     bundleIdentifier: 'ios',
   },
-};
+}

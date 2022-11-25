@@ -7,9 +7,13 @@ const db = openDatabase()
 export default async (): Promise<UserRecord[]> => {
   return await new Promise((resolve, _reject) => {
     db.transaction(async (tx) => {
-      await tx.executeSql('SELECT * FROM records', [], (_tx, results: SQLResultSet) => {
-        resolve(results.rows._array)
-      })
+      await tx.executeSql(
+        'SELECT * FROM records ORDER BY date DESC LIMIT 5',
+        [],
+        (_tx, results: SQLResultSet) => {
+          resolve(results.rows._array)
+        },
+      )
     })
   })
 }

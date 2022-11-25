@@ -1,20 +1,20 @@
-import React, { useContext } from 'react';
-import { ActivityIndicator, View } from 'react-native';
-import { Button, Text } from 'react-native-paper';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import React, { useContext } from 'react'
+import { ActivityIndicator, View } from 'react-native'
+import { Button, Text } from 'react-native-paper'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
-import styles from './Timer.style';
+import styles from './Timer.style'
 
 import {
   fmtMSS,
   getIconColor,
   getNextRoundSecondsDisplay,
   getRoundLoadingText,
-} from '../../utils/TimerUtils';
-import { TimerContext } from './TimerContextProvider';
+} from './helpers/timerHelpers'
+import { TimerContext } from './TimerContextProvider'
 
-const Timer = () => {
-  const time = useContext(TimerContext);
+const Timer = (): JSX.Element => {
+  const time = useContext(TimerContext)
 
   const activeTimerComponent = (
     <Text style={styles.timeHeader} testID={'active-time-header'}>
@@ -24,13 +24,13 @@ const Timer = () => {
           : '0:00'
         : getNextRoundSecondsDisplay(time.roundNumber)}
     </Text>
-  );
+  )
 
   const idleTimerComponent = (
     <Text style={styles.timeHeader} testID={'idle-time-header'}>
       ...
     </Text>
-  );
+  )
 
   return time.enabled ? (
     <View style={styles.container} testID={'play-button'}>
@@ -78,7 +78,7 @@ const Timer = () => {
       <Button
         style={styles.actionButton}
         onPress={() => {
-          !time.timerActive ? time.startRound() : time.stopRound();
+          !time.timerActive ? time.startRound() : time.stopRound()
         }}
         testID={'main-action-button'}
       >
@@ -112,13 +112,11 @@ const Timer = () => {
   ) : (
     <View style={styles.container}>
       <View style={styles.timeHeaderContainer}>
-        <Text style={styles.loadingCaption}>
-          {getRoundLoadingText(time.roundNumber)}
-        </Text>
+        <Text style={styles.loadingCaption}>{getRoundLoadingText(time.roundNumber)}</Text>
         <ActivityIndicator size='large' color='#fff' />
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default Timer;
+export default Timer

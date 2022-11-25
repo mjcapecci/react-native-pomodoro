@@ -1,6 +1,6 @@
-import * as Notifications from 'expo-notifications';
+import * as Notifications from 'expo-notifications'
 
-export const askPermissions = async () => {
+export const askPermissions = async (): Promise<Notifications.NotificationPermissionsStatus> => {
   return await Notifications.requestPermissionsAsync({
     android: {},
     ios: {
@@ -8,51 +8,26 @@ export const askPermissions = async () => {
       allowBadge: true,
       allowSound: true,
     },
-  });
-};
+  })
+}
 
-export const scheduleNotification = async (
-  seconds: number,
-  roundType: string
-) => {
-  let pendingContent;
-
-  switch (roundType) {
-    case 'work':
-      pendingContent = {
-        title: 'work round over',
-        body: 'Good job',
-      };
-      break;
-    case 'short_break':
-      pendingContent = {
-        title: 'work round over',
-        body: 'Break Over!',
-      };
-      break;
-    case 'long_break':
-      pendingContent = {
-        title: 'break round over',
-        body: 'Good job',
-      };
-      break;
-    default:
-      pendingContent = {};
-      break;
-  }
-
+export const scheduleNotification = async (seconds: number): Promise<string> => {
   return await Notifications.scheduleNotificationAsync({
-    content: pendingContent,
+    content: {
+      title: 'Look at that notification',
+      body: 'I am so proud of myself!',
+      sound: 'pomo-marimba.mp3',
+    },
     trigger: {
       seconds,
     },
-  });
-};
+  })
+}
 
-export const cancelAllNotifications = async () => {
-  return await Notifications.cancelAllScheduledNotificationsAsync();
-};
+export const cancelAllNotifications = async (): Promise<void> => {
+  return await Notifications.cancelAllScheduledNotificationsAsync()
+}
 
-export const getNotifications = async () => {
-  return await Notifications.getAllScheduledNotificationsAsync();
-};
+export const getNotifications = async (): Promise<Notifications.NotificationRequest[]> => {
+  return await Notifications.getAllScheduledNotificationsAsync()
+}
