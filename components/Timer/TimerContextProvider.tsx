@@ -20,6 +20,8 @@ export interface TimerContextProps {
   advanceRound: () => void
   startRound: () => void
   stopRound: () => void
+  showConfirmationModal: boolean
+  setShowConfirmationModal: (show: boolean) => void
 }
 
 const TimerContext = createContext<TimerContextProps>({
@@ -33,6 +35,8 @@ const TimerContext = createContext<TimerContextProps>({
   advanceRound: () => null,
   startRound: () => null,
   stopRound: () => null,
+  showConfirmationModal: false,
+  setShowConfirmationModal: () => null,
 })
 
 interface TimerContextProviderProps {
@@ -47,6 +51,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
   const [roundType, setRoundType] = useState<RoundType>(RoundType.Work)
   const [secondsLeft, setSecondsLeft] = useState(1500)
   const [appStateVisible, setAppStateVisible] = useState(true)
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false)
 
   // React Query
   const queryClient = useQueryClient()
@@ -188,6 +193,8 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
         advanceRound,
         startRound,
         stopRound,
+        showConfirmationModal,
+        setShowConfirmationModal,
       }}
     >
       {children}
