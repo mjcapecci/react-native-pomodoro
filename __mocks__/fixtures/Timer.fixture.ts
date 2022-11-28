@@ -9,28 +9,30 @@ const baseTimerContextValues = {
   advanceRound: () => null,
   startRound: () => null,
   stopRound: () => null,
-};
+  showConfirmationModal: false,
+  setShowConfirmationModal: () => null,
+}
 
 export const disabledTimer = {
   ...baseTimerContextValues,
   enabled: false,
   roundNumber: 0,
-};
+}
 
 export const activeRound = {
   ...baseTimerContextValues,
   timerActive: true,
-};
+}
 
 export const inactiveRound = {
   ...baseTimerContextValues,
-};
+}
 
 export const visibleState = {
   ...baseTimerContextValues,
-};
+}
 
 export const invisibleState = {
   ...baseTimerContextValues,
   appStateVisible: false,
-};
+}
