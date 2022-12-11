@@ -1,4 +1,3 @@
-import { Headline } from 'react-native-paper'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import Chart from './Chart'
@@ -13,7 +12,6 @@ const Stats = (): JSX.Element => {
 
   return (
     <View style={styles.container}>
-      <Headline style={styles.statsHeading}>Stats</Headline>
       <Chart dataset={getWorkTimePerDay(query.data ?? [], new Date().getTime()) ?? []} />
       <StatViewer dataset={query?.data} />
     </View>
