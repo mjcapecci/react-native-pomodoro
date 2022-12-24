@@ -21,6 +21,7 @@ import {
 import { TimerContextProvider } from './components/Timer/TimerContextProvider'
 import { AppContextProvider } from './components/General/AppContextProvider'
 import VersionModal from './components/General/VersionModal'
+import Info from './components/Info'
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -72,21 +73,54 @@ const App = (): JSX.Element => {
           <TimerContextProvider>
             <>
               <NavigationContainer theme={DarkTheme}>
-                <Tab.Navigator screenOptions={{ headerShown: false }}>
+                <Tab.Navigator screenOptions={{ headerShown: true }}>
                   <Tab.Screen
                     name='Timer'
                     component={Timer}
                     options={{
-                      tabBarLabelPosition: 'beside-icon',
-                      tabBarIcon: () => <Ionicons name='timer-outline' size={22} color='white' />,
+                      tabBarShowLabel: false,
+                      tabBarActiveTintColor: 'gold',
+                      tabBarIcon: ({ focused, color }) => (
+                        <Ionicons
+                          focused={focused}
+                          name='timer-outline'
+                          size={22}
+                          color={focused ? color : 'white'}
+                        />
+                      ),
                     }}
                   />
                   <Tab.Screen
                     name='Stats'
                     component={Stats}
                     options={{
-                      tabBarLabelPosition: 'beside-icon',
-                      tabBarIcon: () => <Ionicons name='stats-chart' size={22} color='white' />,
+                      tabBarShowLabel: false,
+                      tabBarActiveTintColor: 'gold',
+                      tabBarIcon: ({ focused, color }) => (
+                        <Ionicons
+                          focused={focused}
+                          name='stats-chart'
+                          size={22}
+                          color={focused ? color : 'white'}
+                        />
+                      ),
+                    }}
+                  />
+                  <Tab.Screen
+                    name='Help'
+                    component={Info}
+                    options={{
+                      tabBarShowLabel: false,
+                      tabBarActiveTintColor: 'gold',
+                      title: 'Info',
+                      tabBarIcon: ({ focused, color }) => (
+                        <Ionicons
+                          focused={focused}
+                          name='information-circle'
+                          size={22}
+                          color={focused ? color : 'white'}
+                        />
+                      ),
                     }}
                   />
                   {Boolean(enableDevTools) && (
@@ -94,8 +128,16 @@ const App = (): JSX.Element => {
                       name='Tools'
                       component={DevTools}
                       options={{
-                        tabBarLabelPosition: 'beside-icon',
-                        tabBarIcon: () => <Ionicons name='code-outline' size={22} color='white' />,
+                        tabBarShowLabel: false,
+                        tabBarActiveTintColor: 'gold',
+                        tabBarIcon: ({ focused, color }) => (
+                          <Ionicons
+                            focused={focused}
+                            name='code-outline'
+                            size={22}
+                            color={focused ? color : 'white'}
+                          />
+                        ),
                       }}
                     />
                   )}
