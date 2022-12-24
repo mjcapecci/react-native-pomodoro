@@ -38,6 +38,7 @@ export enum ColorType {
   Cyan = 'cyan',
   Gold = 'gold',
   Grey = 'grey',
+  White = 'white',
 }
 
 export interface RoundData {
