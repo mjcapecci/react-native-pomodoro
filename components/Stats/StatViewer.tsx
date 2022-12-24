@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
   },
   statsHeader: {
     color: '#fff',
-    fontSize: 22,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   statLabel: {
     color: '#fff',
