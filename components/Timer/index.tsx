@@ -13,6 +13,7 @@ import {
 } from './helpers/timerHelpers'
 import { TimerContext } from './TimerContextProvider'
 import ConfirmationModal from './ConfirmationModal'
+import ReversePreviousModal from './ReversePreviousModal'
 
 const Timer = (): JSX.Element => {
   const time = useContext(TimerContext)
@@ -100,20 +101,40 @@ const Timer = (): JSX.Element => {
             ></Ionicons>
           )}
         </Button>
-        <Button style={!time.timerActive ? styles.skipButton : styles.hideSkip}>
-          {' '}
-          <Ionicons
-            name='play-skip-forward-circle'
-            color='white'
-            size={50}
-            onPress={() => time.setShowConfirmationModal(true)}
-          ></Ionicons>
-        </Button>
+        <View style={styles.controlsContainer}>
+          <Button style={!time.timerActive ? styles.skipButton : styles.hideSkip}>
+            {' '}
+            <Ionicons
+              name='play-skip-forward-circle'
+              color='white'
+              size={50}
+              onPress={() => time.setShowConfirmationModal(true)}
+            ></Ionicons>
+          </Button>
+          <Button
+            style={
+              !time.timerActive && time.lastUserRecord?.completed === 1
+                ? styles.skipButton
+                : styles.hideSkip
+            }
+          >
+            <Ionicons
+              name='play-skip-back-circle'
+              color='#ff3b6f'
+              size={50}
+              onPress={() => time.setShowReverseModal(true)}
+            ></Ionicons>
+          </Button>
+        </View>
       </View>
       <ConfirmationModal
         skipType={!time.timerActive ? 'skip' : 'stop'}
         showModal={time.showConfirmationModal}
         setShowModal={time.setShowConfirmationModal}
+      />
+      <ReversePreviousModal
+        showModal={time.showReverseModal}
+        setShowModal={time.setShowReverseModal}
       />
     </>
   ) : (

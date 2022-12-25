@@ -4,10 +4,12 @@ import { scheduleNotification, cancelAllNotifications } from '../Notifications/n
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { AppState, AppStateStatus } from 'react-native'
 import getTimeRemaining, { getRoundData } from './helpers/getTimeRemaining'
-import { RoundData, RoundType } from '../../types'
+import { RoundData, RoundType, UserRecord } from '../../types'
 import addRecord from '../../data_layer/addRecord'
 import shouldAddRecord from './helpers/shouldAddRecord'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import getMostRecentRecord from '../../data_layer/getMostRecentRecord'
+import updateRecordCompletedStatus from '../../data_layer/updateRecordCompletedStatus'
 
 export interface TimerContextProps {
   enabled: boolean
@@ -22,6 +24,10 @@ export interface TimerContextProps {
   stopRound: () => void
   showConfirmationModal: boolean
   setShowConfirmationModal: (show: boolean) => void
+  showReverseModal: boolean
+  setShowReverseModal: (show: boolean) => void
+  lastUserRecord: UserRecord | undefined
+  reversePreviousRecord: (recordId: string) => void
 }
 
 const TimerContext = createContext<TimerContextProps>({
@@ -37,6 +43,10 @@ const TimerContext = createContext<TimerContextProps>({
   stopRound: () => null,
   showConfirmationModal: false,
   setShowConfirmationModal: () => null,
+  showReverseModal: false,
+  setShowReverseModal: () => null,
+  lastUserRecord: undefined,
+  reversePreviousRecord: async (recordId) => null,
 })
 
 interface TimerContextProviderProps {
@@ -44,6 +54,7 @@ interface TimerContextProviderProps {
 }
 
 function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Element {
+  // ----- STATE -----
   const [enabled, setEnabled] = useState(true)
   const [startButtonEnabled, setStartButtonEnabled] = useState(true)
   const [timerActive, setTimerActive] = useState(false)
@@ -52,11 +63,13 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
   const [secondsLeft, setSecondsLeft] = useState(1500)
   const [appStateVisible, setAppStateVisible] = useState(true)
   const [showConfirmationModal, setShowConfirmationModal] = useState(false)
+  const [showReverseModal, setShowReverseModal] = useState(false)
+  const [lastUserRecord, setLastUserRecord] = useState<UserRecord | undefined>(undefined)
 
   // React Query
   const queryClient = useQueryClient()
 
-  const mutation = useMutation(addRecord, {
+  const addRecordMutation = useMutation(addRecord, {
     onSuccess: () => {
       void queryClient.invalidateQueries(['records'])
     },
@@ -104,11 +117,13 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     }
 
     if (await shouldAddRecord(roundData?.date ?? 0)) {
-      await mutation.mutateAsync({
+      await addRecordMutation.mutateAsync({
         date: roundData?.date ?? 0,
         type: roundData?.roundType ?? RoundType.Work,
         completed: secondsLeft < 0 ? 1 : 0,
       })
+
+      await setLastUserRecord(await getMostRecentRecord())
     }
 
     await AsyncStorage.removeItem('roundData')
@@ -117,6 +132,14 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
       setSecondsLeft(getSecondsReset(getRoundType(getNextRound(roundNumber - 1))))
       setEnabled(true)
     }, 1000)
+  }
+
+  function handleReversePreviousRecord(recordId: string): void {
+    void updateRecordCompletedStatus(recordId)
+    void queryClient.invalidateQueries(['records'])
+    if (lastUserRecord != null) {
+      setLastUserRecord({ ...lastUserRecord, completed: 0 })
+    }
   }
 
   // This effect adds a slight delay to the start button to prevent a known race condition
@@ -195,6 +218,10 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
         stopRound,
         showConfirmationModal,
         setShowConfirmationModal,
+        showReverseModal,
+        setShowReverseModal,
+        lastUserRecord,
+        reversePreviousRecord: handleReversePreviousRecord,
       }}
     >
       {children}

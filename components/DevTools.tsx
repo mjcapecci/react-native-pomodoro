@@ -7,6 +7,7 @@ import deleteAllRecords from '../data_layer/deleteAllRecords'
 import deleteDatabase from '../data_layer/deleteDatabase'
 import getRecords from '../data_layer/getRecords'
 import { RoundType, UserRecord } from '../types'
+import getMostRecentRecord from '../data_layer/getMostRecentRecord'
 
 const DevTools = (): JSX.Element => {
   const lastCheckTime = useAsyncStorage('lastCheckTime')
@@ -34,6 +35,12 @@ const DevTools = (): JSX.Element => {
     await deleteDatabase()
   }
 
+  async function handleLogLastRecord(): Promise<UserRecord | undefined> {
+    const lastRecord = await getMostRecentRecord()
+    console.log(lastRecord)
+    return lastRecord ?? undefined
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.devText}>DevTools</Text>
@@ -50,6 +57,11 @@ const DevTools = (): JSX.Element => {
       <View>
         <Button onPress={async () => await handleDatabaseLog()} style={styles.devButton}>
           Log Database
+        </Button>
+      </View>
+      <View>
+        <Button onPress={async () => await handleLogLastRecord()} style={styles.devButton}>
+          Log Last Record
         </Button>
       </View>
       <View>
