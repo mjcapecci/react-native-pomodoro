@@ -74,7 +74,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     }
 
     await AsyncStorage.setItem('roundData', JSON.stringify(roundData))
-    await scheduleNotification(secondsLeft)
+    await scheduleNotification(secondsLeft, roundType)
   }
 
   const startRound = async (): Promise<void> => {

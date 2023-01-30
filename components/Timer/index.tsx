@@ -81,6 +81,7 @@ const Timer = (): JSX.Element => {
           !time.timerActive ? time.startRound() : time.stopRound()
         }}
         testID={'main-action-button'}
+        color='black'
       >
         {!time.timerActive ? (
           <Ionicons
@@ -101,12 +102,9 @@ const Timer = (): JSX.Element => {
       <Button
         style={!time.timerActive ? styles.skipButton : styles.hideSkip}
         onPress={() => time.advanceRound()}
+        color='black'
       >
-        <Ionicons
-          name='play-skip-forward-circle'
-          color='white'
-          size={50}
-        ></Ionicons>
+        <Ionicons name='play-skip-forward-circle' color='white' size={50}></Ionicons>
       </Button>
     </View>
   ) : (

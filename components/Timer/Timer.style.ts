@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
@@ -30,9 +30,11 @@ export default StyleSheet.create({
   },
   actionButton: {
     marginTop: 60,
+    background: 'none',
   },
   skipButton: {
     marginTop: 30,
+    background: 'none',
   },
   hideSkip: {
     display: 'none',
@@ -42,4 +44,4 @@ export default StyleSheet.create({
     marginBottom: 25,
     fontSize: 24,
   },
-});
+})
