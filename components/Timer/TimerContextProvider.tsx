@@ -21,7 +21,7 @@ export interface TimerContextProps {
   appStateVisible: boolean
   advanceRound: () => void
   startRound: () => void
-  stopRound: () => void
+  stopRound: (isPreliminarySkip?: boolean) => void
   showConfirmationModal: boolean
   setShowConfirmationModal: (show: boolean) => void
   showReverseModal: boolean
@@ -40,7 +40,7 @@ const TimerContext = createContext<TimerContextProps>({
   appStateVisible: true,
   advanceRound: () => null,
   startRound: () => null,
-  stopRound: () => null,
+  stopRound: (isPreliminarySkip) => null,
   showConfirmationModal: false,
   setShowConfirmationModal: () => null,
   showReverseModal: false,
@@ -103,16 +103,16 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     }
   }
 
-  const stopRound = async (): Promise<void> => {
+  const stopRound = async (isPreliminarySkip?: boolean): Promise<void> => {
     setTimerActive(false)
     setEnabled(false)
-    await stopTimer()
+    await stopTimer(isPreliminarySkip ?? false)
   }
 
-  const stopTimer = async (): Promise<void> => {
+  const stopTimer = async (isPreliminarySkip: boolean): Promise<void> => {
     const roundData: RoundData | undefined = await getRoundData()
 
-    if (timerActive) {
+    if (timerActive || isPreliminarySkip) {
       advanceRound()
     }
 
@@ -124,6 +124,14 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
       })
 
       await setLastUserRecord(await getMostRecentRecord())
+    }
+
+    if (isPreliminarySkip) {
+      await addRecordMutation.mutateAsync({
+        date: new Date().getTime(),
+        type: roundType,
+        completed: 0,
+      })
     }
 
     await AsyncStorage.removeItem('roundData')
@@ -165,7 +173,7 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
       }, 1000)
     } else {
       void (async () => {
-        await stopTimer()
+        await stopTimer(false)
       })()
       setTimerActive(false)
       setEnabled(false)

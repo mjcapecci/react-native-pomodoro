@@ -19,6 +19,7 @@ const ConfirmationModal = ({ showModal, setDangerModalVisible }: DangerModalProp
   async function handleDeleteAllRecords(): Promise<void> {
     await deleteAllRecords()
     void queryClient.invalidateQueries(['records'])
+    hideModal()
   }
 
   return (
