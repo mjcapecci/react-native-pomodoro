@@ -22,7 +22,7 @@ const ConfirmationModal = ({
     if (skipType === 'stop') {
       time.stopRound()
     } else {
-      time.advanceRound()
+      time.stopRound(true)
     }
     hideModal()
   }
