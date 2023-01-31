@@ -1,6 +1,7 @@
 import * as Notifications from 'expo-notifications'
+import { NotificationPermissionsStatus } from 'expo-notifications'
 
-export const askPermissions = async (): Promise<Notifications.NotificationPermissionsStatus> => {
+export const askPermissions = async (): Promise<NotificationPermissionsStatus> => {
   return await Notifications.requestPermissionsAsync({
     android: {},
     ios: {
@@ -11,13 +12,35 @@ export const askPermissions = async (): Promise<Notifications.NotificationPermis
   })
 }
 
-export const scheduleNotification = async (seconds: number): Promise<string> => {
+export const scheduleNotification = async (seconds: number, roundType: string): Promise<string> => {
+  let pendingContent
+
+  switch (roundType) {
+    case 'work':
+      pendingContent = {
+        title: 'Work Round Over',
+        body: 'Good work! Time for a break.',
+      }
+      break
+    case 'short_break':
+      pendingContent = {
+        title: 'Break Round Over',
+        body: 'Break Over! Time to get back to work.',
+      }
+      break
+    case 'long_break':
+      pendingContent = {
+        title: 'Long Break Round Over',
+        body: 'Long Break Over! Time to get back to work.',
+      }
+      break
+    default:
+      pendingContent = {}
+      break
+  }
+
   return await Notifications.scheduleNotificationAsync({
-    content: {
-      title: 'Look at that notification',
-      body: 'I am so proud of myself!',
-      sound: 'pomo-marimba.mp3',
-    },
+    content: pendingContent,
     trigger: {
       seconds,
     },
