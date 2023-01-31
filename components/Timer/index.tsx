@@ -84,6 +84,7 @@ const Timer = (): JSX.Element => {
             !time.timerActive ? time.startRound() : time.setShowConfirmationModal(true)
           }}
           testID={'main-action-button'}
+          color='black'
         >
           {!time.timerActive ? (
             <Ionicons
@@ -102,7 +103,7 @@ const Timer = (): JSX.Element => {
           )}
         </Button>
         <View style={styles.controlsContainer}>
-          <Button style={!time.timerActive ? styles.skipButton : styles.hideSkip}>
+          <Button style={!time.timerActive ? styles.skipButton : styles.hideSkip} color='black'>
             {' '}
             <Ionicons
               name='play-skip-forward-circle'
@@ -117,6 +118,7 @@ const Timer = (): JSX.Element => {
                 ? styles.skipButton
                 : styles.hideSkip
             }
+            color='black'
           >
             <Ionicons
               name='play-skip-back-circle'

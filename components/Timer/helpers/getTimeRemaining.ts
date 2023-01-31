@@ -9,7 +9,7 @@ export default async function getTimeRemaining(currentSecondsLeft?: number): Pro
   const secondsLeft =
     getSecondsReset(roundData.roundType) -
     getMillisecondsInSeconds(getUnixTimeDifference(startTime, currentTime)) -
-    2
+    1
 
   try {
     if (currentSecondsLeft != null && currentSecondsLeft < secondsLeft) {
