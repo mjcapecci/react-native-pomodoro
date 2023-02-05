@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Modal, Portal, Text } from 'react-native-paper'
 import { AppContext } from './AppContextProvider'
+import styles from '../General/General.style'
 
 const VersionModal = (): JSX.Element => {
   const { showNewVersionModal, setShowNewVersionModal } = React.useContext(AppContext)
@@ -14,7 +15,9 @@ const VersionModal = (): JSX.Element => {
         onDismiss={hideModal}
         contentContainerStyle={containerStyle}
       >
-        <Text>A new version of Pomodoro App has been released. Please download now!</Text>
+        <Text style={styles.centeredModalText}>
+          A new version of Pomodoro App has been released. Please download now!
+        </Text>
       </Modal>
     </Portal>
   )

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Modal, Portal, Text, Button } from 'react-native-paper'
 import { TimerContext } from './TimerContextProvider'
+import styles from '../General/General.style'
 
 interface ConfirmationModalProps {
   skipType: 'skip' | 'stop'
@@ -30,7 +31,9 @@ const ConfirmationModal = ({
   return (
     <Portal>
       <Modal visible={showModal} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-        <Text>Are you sure you would like to skip this round?</Text>
+        <Text style={styles.centeredModalText}>
+          Are you sure you would like to skip this round?
+        </Text>
         <Button onPress={() => confirmSkip()}>Skip</Button>
         <Button onPress={() => hideModal()}>Cancel</Button>
       </Modal>

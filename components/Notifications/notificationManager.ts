@@ -13,6 +13,14 @@ export const askPermissions = async (): Promise<NotificationPermissionsStatus> =
 }
 
 export const scheduleNotification = async (seconds: number, roundType: string): Promise<string> => {
+  Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: true,
+      shouldSetBadge: true,
+    }),
+  })
+
   let pendingContent
 
   switch (roundType) {
@@ -20,18 +28,21 @@ export const scheduleNotification = async (seconds: number, roundType: string): 
       pendingContent = {
         title: 'Work Round Over',
         body: 'Good work! Time for a break.',
+        sound: 'default',
       }
       break
     case 'short_break':
       pendingContent = {
         title: 'Break Round Over',
         body: 'Break Over! Time to get back to work.',
+        sound: 'default',
       }
       break
     case 'long_break':
       pendingContent = {
         title: 'Long Break Round Over',
         body: 'Long Break Over! Time to get back to work.',
+        sound: 'default',
       }
       break
     default:
