@@ -10,6 +10,7 @@ import shouldAddRecord from './helpers/shouldAddRecord'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import getMostRecentRecord from '../../data_layer/getMostRecentRecord'
 import updateRecordCompletedStatus from '../../data_layer/updateRecordCompletedStatus'
+import { useToast } from 'react-native-toast-notifications'
 
 export interface TimerContextProps {
   enabled: boolean
@@ -65,6 +66,8 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
   const [showConfirmationModal, setShowConfirmationModal] = useState(false)
   const [showReverseModal, setShowReverseModal] = useState(false)
   const [lastUserRecord, setLastUserRecord] = useState<UserRecord | undefined>(undefined)
+
+  const toast = useToast()
 
   // React Query
   const queryClient = useQueryClient()
@@ -148,6 +151,12 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     if (lastUserRecord != null) {
       setLastUserRecord({ ...lastUserRecord, completed: 0 })
     }
+    toast.show('Previous record reversed.', {
+      type: 'success',
+      duration: 3000,
+      placement: 'top',
+      animationType: 'slide-in',
+    })
   }
 
   // This effect adds a slight delay to the start button to prevent a known race condition

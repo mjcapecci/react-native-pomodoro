@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { DarkTheme, NavigationContainer } from '@react-navigation/native'
 import { Provider as PaperProvider } from 'react-native-paper'
+import { ToastProvider } from 'react-native-toast-notifications'
 import Constants from 'expo-constants'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
@@ -70,82 +71,84 @@ const App = (): JSX.Element => {
     <QueryClientProvider client={queryClient}>
       <AppContextProvider>
         <PaperProvider>
-          <TimerContextProvider>
-            <>
-              <NavigationContainer theme={DarkTheme}>
-                <Tab.Navigator screenOptions={{ headerShown: true }}>
-                  <Tab.Screen
-                    name='Timer'
-                    component={Timer}
-                    options={{
-                      tabBarShowLabel: false,
-                      tabBarActiveTintColor: 'gold',
-                      tabBarIcon: ({ focused, color }) => (
-                        <Ionicons
-                          focused={focused}
-                          name='timer-outline'
-                          size={22}
-                          color={focused ? color : 'white'}
-                        />
-                      ),
-                    }}
-                  />
-                  <Tab.Screen
-                    name='Stats'
-                    component={Stats}
-                    options={{
-                      tabBarShowLabel: false,
-                      tabBarActiveTintColor: 'gold',
-                      tabBarIcon: ({ focused, color }) => (
-                        <Ionicons
-                          focused={focused}
-                          name='stats-chart'
-                          size={22}
-                          color={focused ? color : 'white'}
-                        />
-                      ),
-                    }}
-                  />
-                  <Tab.Screen
-                    name='Help'
-                    component={Info}
-                    options={{
-                      tabBarShowLabel: false,
-                      tabBarActiveTintColor: 'gold',
-                      title: 'Info',
-                      tabBarIcon: ({ focused, color }) => (
-                        <Ionicons
-                          focused={focused}
-                          name='information-circle'
-                          size={22}
-                          color={focused ? color : 'white'}
-                        />
-                      ),
-                    }}
-                  />
-                  {Boolean(enableDevTools) && (
+          <ToastProvider offset={50}>
+            <TimerContextProvider>
+              <>
+                <NavigationContainer theme={DarkTheme}>
+                  <Tab.Navigator screenOptions={{ headerShown: true }}>
                     <Tab.Screen
-                      name='Tools'
-                      component={DevTools}
+                      name='Timer'
+                      component={Timer}
                       options={{
                         tabBarShowLabel: false,
                         tabBarActiveTintColor: 'gold',
                         tabBarIcon: ({ focused, color }) => (
                           <Ionicons
                             focused={focused}
-                            name='code-outline'
+                            name='timer-outline'
                             size={22}
                             color={focused ? color : 'white'}
                           />
                         ),
                       }}
                     />
-                  )}
-                </Tab.Navigator>
-              </NavigationContainer>
-              <VersionModal />
-            </>
-          </TimerContextProvider>
+                    <Tab.Screen
+                      name='Stats'
+                      component={Stats}
+                      options={{
+                        tabBarShowLabel: false,
+                        tabBarActiveTintColor: 'gold',
+                        tabBarIcon: ({ focused, color }) => (
+                          <Ionicons
+                            focused={focused}
+                            name='stats-chart'
+                            size={22}
+                            color={focused ? color : 'white'}
+                          />
+                        ),
+                      }}
+                    />
+                    <Tab.Screen
+                      name='Help'
+                      component={Info}
+                      options={{
+                        tabBarShowLabel: false,
+                        tabBarActiveTintColor: 'gold',
+                        title: 'Info',
+                        tabBarIcon: ({ focused, color }) => (
+                          <Ionicons
+                            focused={focused}
+                            name='information-circle'
+                            size={22}
+                            color={focused ? color : 'white'}
+                          />
+                        ),
+                      }}
+                    />
+                    {Boolean(enableDevTools) && (
+                      <Tab.Screen
+                        name='Tools'
+                        component={DevTools}
+                        options={{
+                          tabBarShowLabel: false,
+                          tabBarActiveTintColor: 'gold',
+                          tabBarIcon: ({ focused, color }) => (
+                            <Ionicons
+                              focused={focused}
+                              name='code-outline'
+                              size={22}
+                              color={focused ? color : 'white'}
+                            />
+                          ),
+                        }}
+                      />
+                    )}
+                  </Tab.Navigator>
+                </NavigationContainer>
+                <VersionModal />
+              </>
+            </TimerContextProvider>
+          </ToastProvider>
         </PaperProvider>
       </AppContextProvider>
     </QueryClientProvider>
