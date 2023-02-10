@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "pomodoro-app",
-    "slug": "pomodoro-app",
+    "name": "Simple Pomodoro",
+    "slug": "simple-pomodoro",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,7 +16,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "ios"
+      "bundleIdentifier": "com.michaelcapecci.simplepomodoro"
     },
     "android": {
       "adaptiveIcon": {
