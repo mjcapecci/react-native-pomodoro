@@ -3,12 +3,10 @@ import { View, ScrollView, StyleSheet } from 'react-native'
 import { ColorType } from '../../types'
 import HighLevelDescription from './HighLevelDescription'
 import IconKey, { IconKeyData } from './IconKey'
-import { AppContext } from '../General/AppContextProvider'
 import DangerZoneButton from './DangerZoneButton'
 import DangerModal from './DangerModal'
 
 const Help = (): JSX.Element => {
-  const { appVersion } = React.useContext(AppContext)
   const [dangerModalVisible, setDangerModalVisible] = React.useState(false)
 
   const baseIconTableData: IconKeyData[] = [
@@ -45,9 +43,6 @@ const Help = (): JSX.Element => {
         <HighLevelDescription description='Navigation through Pomodash is simple and is completed through the use of the bottom navigation bar.' />
         <IconKey tableTitle='Navigation Icon Key' tableData={navigationIconTableData} />
         <DangerZoneButton setDangerModalVisible={setDangerModalVisible} />
-        <HighLevelDescription
-          description={`The current installed app version is: ${appVersion} -- Some updates are installed automatically, but please check for updates regularly.`}
-        />
         <DangerModal showModal={dangerModalVisible} setDangerModalVisible={setDangerModalVisible} />
       </View>
     </ScrollView>

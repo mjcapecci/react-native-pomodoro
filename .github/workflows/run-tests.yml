@@ -24,3 +24,5 @@ jobs:
 
       - name: Test
         run: yarn test
+        env:
+          FORCE_COLOR: true
