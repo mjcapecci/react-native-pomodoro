@@ -9,7 +9,7 @@ interface State {
 }
 
 const initialAppState: State = {
-  appVersion: '0.1', // update here whenever a new version is released
+  appVersion: '1.0', // update here whenever a new version is released
   showNewVersionModal: false,
   setShowNewVersionModal: () => null,
 }

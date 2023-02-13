@@ -3,12 +3,10 @@ import { View, ScrollView, StyleSheet } from 'react-native'
 import { ColorType } from '../../types'
 import HighLevelDescription from './HighLevelDescription'
 import IconKey, { IconKeyData } from './IconKey'
-import { AppContext } from '../General/AppContextProvider'
 import DangerZoneButton from './DangerZoneButton'
 import DangerModal from './DangerModal'
 
 const Help = (): JSX.Element => {
-  const { appVersion } = React.useContext(AppContext)
   const [dangerModalVisible, setDangerModalVisible] = React.useState(false)
 
   const baseIconTableData: IconKeyData[] = [
