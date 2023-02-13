@@ -29,9 +29,10 @@ const Timer = (): JSX.Element => {
   )
 
   const idleTimerComponent = (
-    <Text style={styles.timeHeader} testID={'idle-time-header'}>
-      ...
-    </Text>
+    <>
+      <Text style={styles.loadingCaption}>Refreshing Timer...</Text>
+      <ActivityIndicator size='large' color='#fff' />
+    </>
   )
 
   return time.enabled ? (
