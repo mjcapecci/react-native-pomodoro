@@ -185,7 +185,6 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
         await stopTimer(false)
       })()
       setTimerActive(false)
-      setEnabled(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [secondsLeft])
