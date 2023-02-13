@@ -68,144 +68,12 @@ exports[`Timer Component when the app is mounted when round is set to active sho
         }
       }
     >
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
+      <Text />
+      <Text />
+      <Text />
+      <Text />
+      <Text />
+      <Text />
     </View>
     <View
       collapsable={false}
@@ -307,28 +175,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
-              style={
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 104,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "ionicons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-              testID="stop-button-icon"
-            >
-              
-            </Text>
+            <Text />
           </Text>
         </View>
       </View>
@@ -443,28 +290,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
               }
             >
                
-              <Text
-                allowFontScaling={false}
-                onPress={[Function]}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "white",
-                      "fontSize": 50,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
             </Text>
           </View>
         </View>
@@ -568,28 +394,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
                 ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                onPress={[Function]}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#ff3b6f",
-                      "fontSize": 50,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
             </Text>
           </View>
         </View>
@@ -667,144 +472,12 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
         }
       }
     >
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
+      <Text />
+      <Text />
+      <Text />
+      <Text />
+      <Text />
+      <Text />
     </View>
     <View
       collapsable={false}
@@ -906,28 +579,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
-              style={
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 104,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "ionicons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-              testID="play-button-icon"
-            >
-              
-            </Text>
+            <Text />
           </Text>
         </View>
       </View>
@@ -1042,28 +694,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
               }
             >
                
-              <Text
-                allowFontScaling={false}
-                onPress={[Function]}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "white",
-                      "fontSize": 50,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
             </Text>
           </View>
         </View>
@@ -1167,28 +798,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
                 ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                onPress={[Function]}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#ff3b6f",
-                      "fontSize": 50,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
             </Text>
           </View>
         </View>
@@ -1266,144 +876,12 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         }
       }
     >
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
+      <Text />
+      <Text />
+      <Text />
+      <Text />
+      <Text />
+      <Text />
     </View>
     <View
       collapsable={false}
@@ -1505,28 +983,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
-              style={
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 104,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "ionicons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-              testID="play-button-icon"
-            >
-              
-            </Text>
+            <Text />
           </Text>
         </View>
       </View>
@@ -1641,28 +1098,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               }
             >
                
-              <Text
-                allowFontScaling={false}
-                onPress={[Function]}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "white",
-                      "fontSize": 50,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
             </Text>
           </View>
         </View>
@@ -1766,28 +1202,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
                 ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                onPress={[Function]}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#ff3b6f",
-                      "fontSize": 50,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
             </Text>
           </View>
         </View>
@@ -1840,22 +1255,19 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               "textAlign": "left",
             },
             Object {
-              "borderColor": "blue",
-              "borderLeftWidth": 4,
-              "borderRightWidth": 4,
               "color": "#fff",
-              "fontSize": 84,
-              "fontVariant": Array [
-                "tabular-nums",
-              ],
-              "marginBottom": 5,
+              "fontSize": 24,
+              "marginBottom": 25,
             },
           ]
         }
-        testID="idle-time-header"
       >
-        ...
+        Refreshing Timer...
       </Text>
+      <ActivityIndicator
+        color="#fff"
+        size="large"
+      />
     </View>
     <View
       style={
@@ -1865,144 +1277,12 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         }
       }
     >
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        allowFontScaling={false}
-        selectable={false}
-        style={
-          Array [
-            Object {
-              "color": "grey",
-              "fontSize": 24,
-            },
-            Object {
-              "margin": 3,
-            },
-            Object {
-              "fontFamily": "ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
+      <Text />
+      <Text />
+      <Text />
+      <Text />
+      <Text />
+      <Text />
     </View>
     <View
       collapsable={false}
@@ -2104,28 +1384,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
-              selectable={false}
-              style={
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 104,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "ionicons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-              testID="play-button-icon"
-            >
-              
-            </Text>
+            <Text />
           </Text>
         </View>
       </View>
@@ -2240,28 +1499,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               }
             >
                
-              <Text
-                allowFontScaling={false}
-                onPress={[Function]}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "white",
-                      "fontSize": 50,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
             </Text>
           </View>
         </View>
@@ -2365,28 +1603,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
                 ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                onPress={[Function]}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#ff3b6f",
-                      "fontSize": 50,
-                    },
-                    undefined,
-                    Object {
-                      "fontFamily": "ionicons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
             </Text>
           </View>
         </View>
