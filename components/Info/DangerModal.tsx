@@ -4,6 +4,7 @@ import { Modal, Portal, Text, Button } from 'react-native-paper'
 import { useToast } from 'react-native-toast-notifications'
 import deleteAllRecords from '../../data_layer/deleteAllRecords'
 import styles from '../General/General.style'
+import ModalDivider from '../General/ModalDivider'
 interface DangerModalProps {
   showModal: boolean
   setDangerModalVisible: (visible: boolean) => void
@@ -36,8 +37,16 @@ const ConfirmationModal = ({ showModal, setDangerModalVisible }: DangerModalProp
         <Text style={styles.centeredModalText}>
           The actions taken in this menu cannot be undone:
         </Text>
-        <Button onPress={async () => await handleDeleteAllRecords()}>Delete all records</Button>
+        <ModalDivider />
         <Button onPress={() => hideModal()}>Close</Button>
+        <ModalDivider />
+        <Button
+          style={styles.bottomButton}
+          color='#ed0d0dc4'
+          onPress={async () => await handleDeleteAllRecords()}
+        >
+          Delete all records
+        </Button>
       </Modal>
     </Portal>
   )

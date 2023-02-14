@@ -1,7 +1,6 @@
 import React from 'react'
-import { View, ScrollView, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { ColorType } from '../../types'
-import HighLevelDescription from './HighLevelDescription'
 import IconKey, { IconKeyData } from './IconKey'
 import DangerZoneButton from './DangerZoneButton'
 import DangerModal from './DangerModal'
@@ -32,20 +31,13 @@ const Help = (): JSX.Element => {
   ]
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <HighLevelDescription
-          description='Pomodash is a minimalist app that helps you to implement the Pomodoro method into your life
-      with very little setup.'
-        />
-        <IconKey tableTitle='Base Icon Key' tableData={baseIconTableData} />
-        <IconKey tableTitle='Color Key' tableData={colorKeyTableData} />
-        <HighLevelDescription description='Navigation through Pomodash is simple and is completed through the use of the bottom navigation bar.' />
-        <IconKey tableTitle='Navigation Icon Key' tableData={navigationIconTableData} />
-        <DangerZoneButton setDangerModalVisible={setDangerModalVisible} />
-        <DangerModal showModal={dangerModalVisible} setDangerModalVisible={setDangerModalVisible} />
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <IconKey tableTitle='Base Icon Key' tableData={baseIconTableData} />
+      <IconKey tableTitle='Color Key' tableData={colorKeyTableData} />
+      <IconKey tableTitle='Navigation Icon Key' tableData={navigationIconTableData} />
+      <DangerZoneButton setDangerModalVisible={setDangerModalVisible} />
+      <DangerModal showModal={dangerModalVisible} setDangerModalVisible={setDangerModalVisible} />
+    </View>
   )
 }
 
