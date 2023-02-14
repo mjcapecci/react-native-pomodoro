@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Modal, Portal, Text, Button } from 'react-native-paper'
 import { TimerContext } from './TimerContextProvider'
 import styles from '../General/General.style'
+import ModalDivider from '../General/ModalDivider'
 
 interface ReversePreviousModalProps {
   showModal: boolean
@@ -28,10 +29,19 @@ const ReversePreviousModal = ({
     <Portal>
       <Modal visible={showModal} onDismiss={hideModal} contentContainerStyle={containerStyle}>
         <Text style={styles.centeredModalText}>
-          Are you sure you would like to set the last completed round to a status of skipped?
+          Are you sure you would like to overwrite the last completed round to a status of skipped?
         </Text>
-        <Button onPress={async () => await confirmReverse()}>Skip</Button>
+        <ModalDivider />
         <Button onPress={() => hideModal()}>Cancel</Button>
+
+        <ModalDivider />
+        <Button
+          style={styles.bottomButton}
+          color='#ed0d0dc4'
+          onPress={async () => await confirmReverse()}
+        >
+          Confirm Overwrite
+        </Button>
       </Modal>
     </Portal>
   )

@@ -16,11 +16,12 @@ const DangerZoneButton = ({ setDangerModalVisible }: DangerZoneButtonProps): JSX
 
 const styles = StyleSheet.create({
   dangerButton: {
-    backgroundColor: 'red',
-    borderColor: 'white',
+    backgroundColor: '#ff3b6f',
+    borderColor: '#fff',
     borderRadius: 10,
     borderWidth: 2,
-    marginTop: 15,
+    marginTop: 30,
+    marginBottom: 30,
   },
 })
 

@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { DarkTheme, NavigationContainer } from '@react-navigation/native'
-import { Provider as PaperProvider } from 'react-native-paper'
+import { Provider as PaperProvider, DarkTheme as DefaultTheme } from 'react-native-paper'
 import { ToastProvider } from 'react-native-toast-notifications'
 import Constants from 'expo-constants'
 import Ionicons from '@expo/vector-icons/Ionicons'
@@ -67,10 +67,18 @@ const App = (): JSX.Element => {
     })()
   }, [])
 
+  const theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#616161',
+    },
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <AppContextProvider>
-        <PaperProvider>
+        <PaperProvider theme={theme}>
           <ToastProvider offset={50}>
             <TimerContextProvider>
               <>
