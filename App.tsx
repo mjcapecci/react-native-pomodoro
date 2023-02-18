@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { DarkTheme, NavigationContainer } from '@react-navigation/native'
 import { Provider as PaperProvider, DarkTheme as DefaultTheme } from 'react-native-paper'
+import * as ScreenOrientation from 'expo-screen-orientation'
 import { ToastProvider } from 'react-native-toast-notifications'
 import Constants from 'expo-constants'
 import Ionicons from '@expo/vector-icons/Ionicons'
@@ -23,6 +24,8 @@ import { TimerContextProvider } from './components/Timer/TimerContextProvider'
 import { AppContextProvider } from './components/General/AppContextProvider'
 import VersionModal from './components/General/VersionModal'
 import Info from './components/Info'
+
+void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
