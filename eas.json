@@ -17,6 +17,7 @@
       }
     },
     "production": {
+      "node": "16.13.0",
       "ios": {
         "resourceClass": "m1-medium"
       }
