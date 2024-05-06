@@ -2441,9 +2441,7 @@ exports[`Timer Component when the app is mounted when the timer is disabled and 
             },
           ]
         }
-      >
-        Loading work round...
-      </Text>
+      />
       <ActivityIndicator
         color="#fff"
         size="large"

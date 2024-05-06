@@ -1,7 +1,7 @@
 import React from 'react'
 import Timer from '..'
 import { render, cleanup } from '@testing-library/react-native'
-import { TimerContext, TimerContextProps } from '../TimerContextProvider'
+import { TimerContext, TimerContextProps } from '../TimerContextProviderV2'
 import {
   activeRound,
   disabledTimer,

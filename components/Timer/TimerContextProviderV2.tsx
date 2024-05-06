@@ -11,6 +11,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import getMostRecentRecord from '../../data_layer/getMostRecentRecord'
 import updateRecordCompletedStatus from '../../data_layer/updateRecordCompletedStatus'
 import { useToast } from 'react-native-toast-notifications'
+import { debounce, throttle } from 'lodash'
 
 export interface TimerContextProps {
   enabled: boolean
@@ -54,10 +55,6 @@ interface TimerContextProviderProps {
   children: JSX.Element
 }
 
-/*
-  This version of TimerContextProvider is deprecated and should be removed in the future.
-  Please use TimerContextProviderV2 instead.
-*/
 function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Element {
   // ----- STATE -----
   const [enabled, setEnabled] = useState(true)
@@ -101,23 +98,25 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     await AsyncStorage.setItem('roundData', JSON.stringify(roundData))
     await scheduleNotification(secondsLeft, roundType)
   }
-
-  const startRound = async (): Promise<void> => {
+  const startRound = throttle(async (): Promise<void> => {
     if (enabled && startButtonEnabled) {
       setTimerActive(true)
       setSecondsLeft(secondsLeft - 1)
       await startTimer()
     }
-  }
+  }, 1000)
 
-  const stopRound = async (isPreliminarySkip?: boolean): Promise<void> => {
+  const stopRound = throttle(async (isPreliminarySkip?: boolean): Promise<void> => {
     setTimerActive(false)
+    console.log('disabling 1')
     setEnabled(false)
     await stopTimer(isPreliminarySkip ?? false)
-  }
+  }, 500)
 
-  const stopTimer = async (isPreliminarySkip: boolean): Promise<void> => {
+  const stopTimer = throttle(async (isPreliminarySkip: boolean): Promise<void> => {
     const roundData: RoundData | undefined = await getRoundData()
+
+    setShowConfirmationModal(false)
 
     if (timerActive || isPreliminarySkip) {
       advanceRound()
@@ -143,11 +142,11 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
 
     await AsyncStorage.removeItem('roundData')
     await cancelAllNotifications()
-    await setTimeout(() => {
-      setSecondsLeft(getSecondsReset(getRoundType(getNextRound(roundNumber - 1))))
-      setEnabled(true)
-    }, 1000)
-  }
+
+    setSecondsLeft(getSecondsReset(getRoundType(getNextRound(roundNumber - 1))))
+    console.log('enabling')
+    setEnabled(true)
+  }, 1000)
 
   function handleReversePreviousRecord(recordId: string): void {
     void updateRecordCompletedStatus(recordId)
@@ -166,9 +165,10 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
   // This effect adds a slight delay to the start button to prevent a known race condition
   useEffect(() => {
     if (enabled) {
-      setTimeout(() => {
+      const enableStartButton = throttle(() => {
         setStartButtonEnabled(true)
       }, 1000)
+      enableStartButton()
     } else {
       setStartButtonEnabled(false)
     }
@@ -181,32 +181,27 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     }
 
     if (timerActive && secondsLeft > -1) {
-      setTimeout(async () => {
+      const updateSecondsLeft = debounce(async () => {
         setSecondsLeft((await fetchTime()) ?? secondsLeft)
       }, 1000)
+      void updateSecondsLeft()
     } else {
       void (async () => {
         await stopTimer(false)
       })()
       setTimerActive(false)
-      setEnabled(false)
+      console.log('disabling 2')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [secondsLeft])
 
   const handleAppStateChange = useCallback(
-    async (nextAppState: AppStateStatus): Promise<void> => {
+    async (nextAppState: AppStateStatus) => {
       if (nextAppState === 'active') {
         if (!appStateVisible) {
-          setTimeout(async () => {
-            setSecondsLeft((await getTimeRemaining()) ?? secondsLeft)
-            setAppStateVisible(true)
-          }, 1000)
+          setSecondsLeft((await getTimeRemaining()) ?? secondsLeft)
+          setAppStateVisible(true)
         }
-      }
-
-      if (nextAppState === 'inactive' || nextAppState === 'background') {
-        return setAppStateVisible(false)
       }
     },
     [appStateVisible, secondsLeft],

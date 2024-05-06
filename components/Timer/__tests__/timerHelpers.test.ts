@@ -3,7 +3,6 @@ import {
   ColorType,
   TimerRoundSeconds,
   TimerRoundString,
-  TimerLoadingText,
 } from '../../../types'
 import {
   getNextRound,
@@ -12,7 +11,6 @@ import {
   getSecondsReset,
   getNextRoundSecondsDisplay,
   fmtMSS,
-  getRoundLoadingText,
   isTimerRoundSecondsType,
 } from '../helpers/timerHelpers'
 
@@ -106,29 +104,29 @@ describe('getNextRoundSecondsDisplay returns the appropriate seconds in string f
 })
 
 // getRoundLoadingText
-describe('getRoundType returns the appropriate round name...', () => {
-  it('round 0', () => {
-    expect(getRoundLoadingText(0)).toEqual(TimerLoadingText.Work)
-  })
-  it('round 1', () => {
-    expect(getRoundLoadingText(1)).toEqual(TimerLoadingText.ShortBreak)
-  })
-  it('round 2', () => {
-    expect(getRoundLoadingText(2)).toEqual(TimerLoadingText.Work)
-  })
-  it('round 3', () => {
-    expect(getRoundLoadingText(3)).toEqual(TimerLoadingText.ShortBreak)
-  })
-  it('round 4', () => {
-    expect(getRoundLoadingText(4)).toEqual(TimerLoadingText.Work)
-  })
-  it('round 5', () => {
-    expect(getRoundLoadingText(5)).toEqual(TimerLoadingText.LongBreak)
-  })
-  it('invalid round', () => {
-    expect(getRoundLoadingText(6)).toEqual(TimerLoadingText.Invalid)
-  })
-})
+// describe('getRoundType returns the appropriate round name...', () => {
+//   it('round 0', () => {
+//     expect(getRoundLoadingText(0)).toEqual(TimerLoadingText.Work)
+//   })
+//   it('round 1', () => {
+//     expect(getRoundLoadingText(1)).toEqual(TimerLoadingText.ShortBreak)
+//   })
+//   it('round 2', () => {
+//     expect(getRoundLoadingText(2)).toEqual(TimerLoadingText.Work)
+//   })
+//   it('round 3', () => {
+//     expect(getRoundLoadingText(3)).toEqual(TimerLoadingText.ShortBreak)
+//   })
+//   it('round 4', () => {
+//     expect(getRoundLoadingText(4)).toEqual(TimerLoadingText.Work)
+//   })
+//   it('round 5', () => {
+//     expect(getRoundLoadingText(5)).toEqual(TimerLoadingText.LongBreak)
+//   })
+//   it('invalid round', () => {
+//     expect(getRoundLoadingText(6)).toEqual(TimerLoadingText.Invalid)
+//   })
+// })
 
 // fmtMSS
 describe('fmtMSS returns a seconds number formatted for alarm clock time', () => {

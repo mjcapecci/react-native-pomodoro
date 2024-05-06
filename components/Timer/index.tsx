@@ -11,7 +11,7 @@ import {
   getNextRoundSecondsDisplay,
   getRoundLoadingText,
 } from './helpers/timerHelpers'
-import { TimerContext } from './TimerContextProvider'
+import { TimerContext } from './TimerContextProviderV2'
 import ConfirmationModal from './ConfirmationModal'
 import ReversePreviousModal from './ReversePreviousModal'
 
@@ -134,6 +134,7 @@ const Timer = (): JSX.Element => {
         skipType={!time.timerActive ? 'skip' : 'stop'}
         showModal={time.showConfirmationModal}
         setShowModal={time.setShowConfirmationModal}
+        secondsLeft={time.secondsLeft}
       />
       <ReversePreviousModal
         showModal={time.showReverseModal}
