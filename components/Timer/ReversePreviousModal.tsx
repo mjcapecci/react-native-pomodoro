@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Modal, Portal, Text, Button } from 'react-native-paper'
-import { TimerContext } from './TimerContextProvider'
+import { TimerContext } from './TimerContextProviderV2'
 import styles from '../General/General.style'
 import ModalDivider from '../General/ModalDivider'
 

@@ -20,7 +20,7 @@ import {
   cancelAllNotifications,
   getNotifications,
 } from './components/Notifications/notificationManager'
-import { TimerContextProvider } from './components/Timer/TimerContextProvider'
+import { TimerContextProvider } from './components/Timer/TimerContextProviderV2'
 import { AppContextProvider } from './components/General/AppContextProvider'
 import VersionModal from './components/General/VersionModal'
 import Info from './components/Info'

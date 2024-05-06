@@ -34,10 +34,10 @@ export const getRoundData = async (): Promise<RoundData | undefined> => {
   }
 }
 
-function getUnixTimeDifference(startTime: number, currentTime: number): number {
+export function getUnixTimeDifference(startTime: number, currentTime: number): number {
   return currentTime - startTime
 }
 
-function getMillisecondsInSeconds(milliseconds: number): number {
+export function getMillisecondsInSeconds(milliseconds: number): number {
   return Math.floor(milliseconds / 1000)
 }

@@ -1,10 +1,4 @@
-import {
-  ColorType,
-  RoundType,
-  TimerLoadingText,
-  TimerRoundSeconds,
-  TimerRoundString,
-} from '../../../types'
+import { ColorType, RoundType, TimerRoundSeconds, TimerRoundString } from '../../../types'
 
 export const getNextRound = (roundNumber: number): number => {
   if (roundNumber <= 4) {
@@ -79,23 +73,8 @@ export const getNextRoundSecondsDisplay = (roundNumber: number): TimerRoundStrin
   }
 }
 
-export const getRoundLoadingText = (roundNumber: number): TimerLoadingText => {
-  switch (roundNumber) {
-    case 0:
-      return TimerLoadingText.Work
-    case 1:
-      return TimerLoadingText.ShortBreak
-    case 2:
-      return TimerLoadingText.Work
-    case 3:
-      return TimerLoadingText.ShortBreak
-    case 4:
-      return TimerLoadingText.Work
-    case 5:
-      return TimerLoadingText.LongBreak
-    default:
-      return TimerLoadingText.Invalid
-  }
+export const getRoundLoadingText = (roundNumber: number): string => {
+  return ''
 }
 
 export const fmtMSS = (s: number): string => {
