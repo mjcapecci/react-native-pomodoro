@@ -1,6 +1,7 @@
 export default {
-  name: 'Simple Pomodoro',
-  version: '0.1',
+  name: 'Simply Pomodoro',
+  slug: 'simply-pomodoro',
+  version: '1.0.1',
   icon: './assets/icon.png',
   splash: {
     image: './assets/splash.png',
@@ -11,13 +12,14 @@ export default {
     enableDevTools: false,
     environment: 'development',
     eas: {
-      projectId: '0d00ccaf-7ed8-4649-ae23-7a1ae775efe9',
+      projectId: 'dff0a63d-f17e-4a2d-bedb-edb8f808321b',
     },
   },
   ios: {
-    bundleIdentifier: 'com.michaelcapecci.simplepomodoro',
+    bundleIdentifier: 'com.michaelcapecci.simplypomodoro',
   },
   android: {
     package: 'com.michaelcapecci.simplepomodoro',
   },
+  owner: 'mjcapecci',
 }
