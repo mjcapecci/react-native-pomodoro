@@ -108,7 +108,6 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
 
   const stopRound = throttle(async (isPreliminarySkip?: boolean): Promise<void> => {
     setTimerActive(false)
-    console.log('disabling 1')
     setEnabled(false)
     await stopTimer(isPreliminarySkip ?? false)
   }, 500)
@@ -144,7 +143,6 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
     await cancelAllNotifications()
 
     setSecondsLeft(getSecondsReset(getRoundType(getNextRound(roundNumber - 1))))
-    console.log('enabling')
     setEnabled(true)
   }, 1000)
 
@@ -190,7 +188,6 @@ function TimerContextProvider({ children }: TimerContextProviderProps): JSX.Elem
         await stopTimer(false)
       })()
       setTimerActive(false)
-      console.log('disabling 2')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [secondsLeft])

@@ -8,5 +8,6 @@ module.exports = {
       },
       'dynamic-import-node',
     ],
+    ['@babel/plugin-proposal-private-methods', { loose: true }],
   ],
-};
+}
