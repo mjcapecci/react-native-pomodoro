@@ -1,7 +1,7 @@
 export default {
   name: 'Simply Pomodoro',
   slug: 'simply-pomodoro',
-  version: '1.1.0',
+  version: '1.2.0',
   icon: './assets/icon.png',
   splash: {
     image: './assets/splash.png',

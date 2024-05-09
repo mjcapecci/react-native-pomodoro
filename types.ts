@@ -16,7 +16,7 @@ export enum RoundType {
 
 export enum TimerRoundSeconds {
   Work = 1501,
-  ShortBreak = 5,
+  ShortBreak = 301,
   LongBreak = 1201,
 }
 

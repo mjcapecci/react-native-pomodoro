@@ -5,14 +5,14 @@ exports[`Timer Component when the app is mounted when round is set to active sho
   collapsable={false}
   pointerEvents="box-none"
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#000",
         "flex": 1,
@@ -23,7 +23,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "display": "flex",
           "height": 100,
@@ -33,22 +33,22 @@ exports[`Timer Component when the app is mounted when round is set to active sho
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "borderColor": "blue",
               "borderLeftWidth": 4,
               "borderRightWidth": 4,
               "color": "#fff",
               "fontSize": 84,
-              "fontVariant": Array [
+              "fontVariant": [
                 "tabular-nums",
               ],
               "marginBottom": 5,
@@ -62,7 +62,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
         }
@@ -72,145 +72,145 @@ exports[`Timer Component when the app is mounted when round is set to active sho
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "cyan",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
     </View>
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "transparent",
           "borderColor": "transparent",
           "borderRadius": 4,
@@ -220,7 +220,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
           "marginTop": 60,
           "minWidth": 64,
           "shadowColor": "#000000",
-          "shadowOffset": Object {
+          "shadowOffset": {
             "height": 0,
             "width": 0,
           },
@@ -232,8 +232,16 @@ exports[`Timer Component when the app is mounted when round is set to active sho
       <View
         accessibilityRole="button"
         accessibilityState={
-          Object {
+          {
             "disabled": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
           }
         }
         accessible={true}
@@ -246,11 +254,11 @@ exports[`Timer Component when the app is mounted when round is set to active sho
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
+          [
+            {
               "overflow": "hidden",
             },
-            Object {
+            {
               "borderRadius": 4,
             },
           ]
@@ -259,8 +267,8 @@ exports[`Timer Component when the app is mounted when round is set to active sho
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "center",
@@ -273,32 +281,32 @@ exports[`Timer Component when the app is mounted when round is set to active sho
             numberOfLines={1}
             selectable={false}
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "letterSpacing": 1,
                     "marginHorizontal": 16,
                     "marginVertical": 9,
                     "textAlign": "center",
                   },
                   undefined,
-                  Object {
+                  {
                     "textTransform": "uppercase",
                   },
-                  Object {
+                  {
                     "color": "black",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
-                  Object {
+                  {
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -311,23 +319,23 @@ exports[`Timer Component when the app is mounted when round is set to active sho
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "white",
                     "fontSize": 104,
                   },
                   undefined,
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="stop-button-icon"
             >
-              
+              
             </Text>
           </Text>
         </View>
@@ -335,7 +343,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
           "justifyContent": "center",
@@ -346,7 +354,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -356,7 +364,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
             "elevation": 0,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -368,8 +376,16 @@ exports[`Timer Component when the app is mounted when round is set to active sho
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -382,11 +398,11 @@ exports[`Timer Component when the app is mounted when round is set to active sho
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -394,8 +410,8 @@ exports[`Timer Component when the app is mounted when round is set to active sho
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -408,32 +424,32 @@ exports[`Timer Component when the app is mounted when round is set to active sho
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -448,22 +464,22 @@ exports[`Timer Component when the app is mounted when round is set to active sho
                 onPress={[Function]}
                 selectable={false}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "white",
                       "fontSize": 50,
                     },
                     undefined,
-                    Object {
+                    {
                       "fontFamily": "ionicons",
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
+                    {},
                   ]
                 }
               >
-                
+                
               </Text>
             </Text>
           </View>
@@ -472,7 +488,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -482,7 +498,7 @@ exports[`Timer Component when the app is mounted when round is set to active sho
             "elevation": 0,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -494,8 +510,16 @@ exports[`Timer Component when the app is mounted when round is set to active sho
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -508,11 +532,11 @@ exports[`Timer Component when the app is mounted when round is set to active sho
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -520,8 +544,8 @@ exports[`Timer Component when the app is mounted when round is set to active sho
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -534,32 +558,32 @@ exports[`Timer Component when the app is mounted when round is set to active sho
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -573,22 +597,22 @@ exports[`Timer Component when the app is mounted when round is set to active sho
                 onPress={[Function]}
                 selectable={false}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#ff3b6f",
                       "fontSize": 50,
                     },
                     undefined,
-                    Object {
+                    {
                       "fontFamily": "ionicons",
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
+                    {},
                   ]
                 }
               >
-                
+                
               </Text>
             </Text>
           </View>
@@ -604,14 +628,14 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
   collapsable={false}
   pointerEvents="box-none"
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#000",
         "flex": 1,
@@ -622,7 +646,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "display": "flex",
           "height": 100,
@@ -632,22 +656,22 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "borderColor": "blue",
               "borderLeftWidth": 4,
               "borderRightWidth": 4,
               "color": "#fff",
               "fontSize": 84,
-              "fontVariant": Array [
+              "fontVariant": [
                 "tabular-nums",
               ],
               "marginBottom": 5,
@@ -661,7 +685,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
         }
@@ -671,145 +695,145 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
     </View>
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "transparent",
           "borderColor": "transparent",
           "borderRadius": 4,
@@ -819,7 +843,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
           "marginTop": 60,
           "minWidth": 64,
           "shadowColor": "#000000",
-          "shadowOffset": Object {
+          "shadowOffset": {
             "height": 0,
             "width": 0,
           },
@@ -831,8 +855,16 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
       <View
         accessibilityRole="button"
         accessibilityState={
-          Object {
+          {
             "disabled": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
           }
         }
         accessible={true}
@@ -845,11 +877,11 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
+          [
+            {
               "overflow": "hidden",
             },
-            Object {
+            {
               "borderRadius": 4,
             },
           ]
@@ -858,8 +890,8 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "center",
@@ -872,32 +904,32 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
             numberOfLines={1}
             selectable={false}
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "letterSpacing": 1,
                     "marginHorizontal": 16,
                     "marginVertical": 9,
                     "textAlign": "center",
                   },
                   undefined,
-                  Object {
+                  {
                     "textTransform": "uppercase",
                   },
-                  Object {
+                  {
                     "color": "black",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
-                  Object {
+                  {
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -910,23 +942,23 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "white",
                     "fontSize": 104,
                   },
                   undefined,
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="play-button-icon"
             >
-              
+              
             </Text>
           </Text>
         </View>
@@ -934,7 +966,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
           "justifyContent": "center",
@@ -945,7 +977,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "#000",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -955,7 +987,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
             "marginTop": 30,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -967,8 +999,16 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -981,11 +1021,11 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -993,8 +1033,8 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -1007,32 +1047,32 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -1047,22 +1087,22 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
                 onPress={[Function]}
                 selectable={false}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "white",
                       "fontSize": 50,
                     },
                     undefined,
-                    Object {
+                    {
                       "fontFamily": "ionicons",
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
+                    {},
                   ]
                 }
               >
-                
+                
               </Text>
             </Text>
           </View>
@@ -1071,7 +1111,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -1081,7 +1121,7 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
             "elevation": 0,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -1093,8 +1133,16 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -1107,11 +1155,11 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -1119,8 +1167,8 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -1133,32 +1181,32 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -1172,22 +1220,22 @@ exports[`Timer Component when the app is mounted when round is set to inactive s
                 onPress={[Function]}
                 selectable={false}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#ff3b6f",
                       "fontSize": 50,
                     },
                     undefined,
-                    Object {
+                    {
                       "fontFamily": "ionicons",
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
+                    {},
                   ]
                 }
               >
-                
+                
               </Text>
             </Text>
           </View>
@@ -1203,14 +1251,14 @@ exports[`Timer Component when the app is mounted when the app state is visible w
   collapsable={false}
   pointerEvents="box-none"
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#000",
         "flex": 1,
@@ -1221,7 +1269,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "display": "flex",
           "height": 100,
@@ -1231,22 +1279,22 @@ exports[`Timer Component when the app is mounted when the app state is visible w
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "borderColor": "blue",
               "borderLeftWidth": 4,
               "borderRightWidth": 4,
               "color": "#fff",
               "fontSize": 84,
-              "fontVariant": Array [
+              "fontVariant": [
                 "tabular-nums",
               ],
               "marginBottom": 5,
@@ -1260,7 +1308,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
         }
@@ -1270,145 +1318,145 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
     </View>
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "transparent",
           "borderColor": "transparent",
           "borderRadius": 4,
@@ -1418,7 +1466,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
           "marginTop": 60,
           "minWidth": 64,
           "shadowColor": "#000000",
-          "shadowOffset": Object {
+          "shadowOffset": {
             "height": 0,
             "width": 0,
           },
@@ -1430,8 +1478,16 @@ exports[`Timer Component when the app is mounted when the app state is visible w
       <View
         accessibilityRole="button"
         accessibilityState={
-          Object {
+          {
             "disabled": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
           }
         }
         accessible={true}
@@ -1444,11 +1500,11 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
+          [
+            {
               "overflow": "hidden",
             },
-            Object {
+            {
               "borderRadius": 4,
             },
           ]
@@ -1457,8 +1513,8 @@ exports[`Timer Component when the app is mounted when the app state is visible w
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "center",
@@ -1471,32 +1527,32 @@ exports[`Timer Component when the app is mounted when the app state is visible w
             numberOfLines={1}
             selectable={false}
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "letterSpacing": 1,
                     "marginHorizontal": 16,
                     "marginVertical": 9,
                     "textAlign": "center",
                   },
                   undefined,
-                  Object {
+                  {
                     "textTransform": "uppercase",
                   },
-                  Object {
+                  {
                     "color": "black",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
-                  Object {
+                  {
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -1509,23 +1565,23 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "white",
                     "fontSize": 104,
                   },
                   undefined,
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="play-button-icon"
             >
-              
+              
             </Text>
           </Text>
         </View>
@@ -1533,7 +1589,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
           "justifyContent": "center",
@@ -1544,7 +1600,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "#000",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -1554,7 +1610,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
             "marginTop": 30,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -1566,8 +1622,16 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -1580,11 +1644,11 @@ exports[`Timer Component when the app is mounted when the app state is visible w
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -1592,8 +1656,8 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -1606,32 +1670,32 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -1646,22 +1710,22 @@ exports[`Timer Component when the app is mounted when the app state is visible w
                 onPress={[Function]}
                 selectable={false}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "white",
                       "fontSize": 50,
                     },
                     undefined,
-                    Object {
+                    {
                       "fontFamily": "ionicons",
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
+                    {},
                   ]
                 }
               >
-                
+                
               </Text>
             </Text>
           </View>
@@ -1670,7 +1734,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -1680,7 +1744,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
             "elevation": 0,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -1692,8 +1756,16 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -1706,11 +1778,11 @@ exports[`Timer Component when the app is mounted when the app state is visible w
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -1718,8 +1790,8 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -1732,32 +1804,32 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -1771,22 +1843,22 @@ exports[`Timer Component when the app is mounted when the app state is visible w
                 onPress={[Function]}
                 selectable={false}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#ff3b6f",
                       "fontSize": 50,
                     },
                     undefined,
-                    Object {
+                    {
                       "fontFamily": "ionicons",
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
+                    {},
                   ]
                 }
               >
-                
+                
               </Text>
             </Text>
           </View>
@@ -1802,14 +1874,14 @@ exports[`Timer Component when the app is mounted when the app state is visible w
   collapsable={false}
   pointerEvents="box-none"
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#000",
         "flex": 1,
@@ -1820,7 +1892,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "display": "flex",
           "height": 100,
@@ -1830,16 +1902,16 @@ exports[`Timer Component when the app is mounted when the app state is visible w
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "#fff",
               "fontSize": 24,
               "marginBottom": 25,
@@ -1856,7 +1928,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
         }
@@ -1866,145 +1938,145 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
       <Text
         allowFontScaling={false}
         selectable={false}
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "grey",
               "fontSize": 24,
             },
-            Object {
+            {
               "margin": 3,
             },
-            Object {
+            {
               "fontFamily": "ionicons",
               "fontStyle": "normal",
               "fontWeight": "normal",
             },
-            Object {},
+            {},
           ]
         }
       >
-        
+        
       </Text>
     </View>
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "transparent",
           "borderColor": "transparent",
           "borderRadius": 4,
@@ -2014,7 +2086,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
           "marginTop": 60,
           "minWidth": 64,
           "shadowColor": "#000000",
-          "shadowOffset": Object {
+          "shadowOffset": {
             "height": 0,
             "width": 0,
           },
@@ -2026,8 +2098,16 @@ exports[`Timer Component when the app is mounted when the app state is visible w
       <View
         accessibilityRole="button"
         accessibilityState={
-          Object {
+          {
             "disabled": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
           }
         }
         accessible={true}
@@ -2040,11 +2120,11 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
+          [
+            {
               "overflow": "hidden",
             },
-            Object {
+            {
               "borderRadius": 4,
             },
           ]
@@ -2053,8 +2133,8 @@ exports[`Timer Component when the app is mounted when the app state is visible w
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "center",
@@ -2067,32 +2147,32 @@ exports[`Timer Component when the app is mounted when the app state is visible w
             numberOfLines={1}
             selectable={false}
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "letterSpacing": 1,
                     "marginHorizontal": 16,
                     "marginVertical": 9,
                     "textAlign": "center",
                   },
                   undefined,
-                  Object {
+                  {
                     "textTransform": "uppercase",
                   },
-                  Object {
+                  {
                     "color": "black",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
-                  Object {
+                  {
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -2105,23 +2185,23 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "white",
                     "fontSize": 104,
                   },
                   undefined,
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="play-button-icon"
             >
-              
+              
             </Text>
           </Text>
         </View>
@@ -2129,7 +2209,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
           "justifyContent": "center",
@@ -2140,7 +2220,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "#000",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -2150,7 +2230,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
             "marginTop": 30,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -2162,8 +2242,16 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -2176,11 +2264,11 @@ exports[`Timer Component when the app is mounted when the app state is visible w
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -2188,8 +2276,8 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -2202,32 +2290,32 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -2242,22 +2330,22 @@ exports[`Timer Component when the app is mounted when the app state is visible w
                 onPress={[Function]}
                 selectable={false}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "white",
                       "fontSize": 50,
                     },
                     undefined,
-                    Object {
+                    {
                       "fontFamily": "ionicons",
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
+                    {},
                   ]
                 }
               >
-                
+                
               </Text>
             </Text>
           </View>
@@ -2266,7 +2354,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -2276,7 +2364,7 @@ exports[`Timer Component when the app is mounted when the app state is visible w
             "elevation": 0,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -2288,8 +2376,16 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -2302,11 +2398,11 @@ exports[`Timer Component when the app is mounted when the app state is visible w
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -2314,8 +2410,8 @@ exports[`Timer Component when the app is mounted when the app state is visible w
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -2328,32 +2424,32 @@ exports[`Timer Component when the app is mounted when the app state is visible w
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -2367,22 +2463,22 @@ exports[`Timer Component when the app is mounted when the app state is visible w
                 onPress={[Function]}
                 selectable={false}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#ff3b6f",
                       "fontSize": 50,
                     },
                     undefined,
-                    Object {
+                    {
                       "fontFamily": "ionicons",
                       "fontStyle": "normal",
                       "fontWeight": "normal",
                     },
-                    Object {},
+                    {},
                   ]
                 }
               >
-                
+                
               </Text>
             </Text>
           </View>
@@ -2398,14 +2494,14 @@ exports[`Timer Component when the app is mounted when the timer is disabled and 
   collapsable={false}
   pointerEvents="box-none"
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#000",
         "flex": 1,
@@ -2415,7 +2511,7 @@ exports[`Timer Component when the app is mounted when the timer is disabled and 
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "display": "flex",
           "height": 100,
@@ -2425,16 +2521,16 @@ exports[`Timer Component when the app is mounted when the timer is disabled and 
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "color": "#fff",
               "fontSize": 24,
               "marginBottom": 25,
@@ -2456,14 +2552,14 @@ exports[`Timer Component when the app is mounting should render the Timer compon
   collapsable={false}
   pointerEvents="box-none"
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <View
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#000",
         "flex": 1,
@@ -2474,7 +2570,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "display": "flex",
           "height": 100,
@@ -2484,22 +2580,22 @@ exports[`Timer Component when the app is mounting should render the Timer compon
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#000000",
               "fontFamily": "System",
               "fontWeight": "400",
             },
-            Object {
+            {
               "textAlign": "left",
             },
-            Object {
+            {
               "borderColor": "blue",
               "borderLeftWidth": 4,
               "borderRightWidth": 4,
               "color": "#fff",
               "fontSize": 84,
-              "fontVariant": Array [
+              "fontVariant": [
                 "tabular-nums",
               ],
               "marginBottom": 5,
@@ -2513,7 +2609,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
         }
@@ -2529,7 +2625,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "transparent",
           "borderColor": "transparent",
           "borderRadius": 4,
@@ -2539,7 +2635,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
           "marginTop": 60,
           "minWidth": 64,
           "shadowColor": "#000000",
-          "shadowOffset": Object {
+          "shadowOffset": {
             "height": 0,
             "width": 0,
           },
@@ -2551,8 +2647,16 @@ exports[`Timer Component when the app is mounting should render the Timer compon
       <View
         accessibilityRole="button"
         accessibilityState={
-          Object {
+          {
             "disabled": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
           }
         }
         accessible={true}
@@ -2565,11 +2669,11 @@ exports[`Timer Component when the app is mounting should render the Timer compon
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
+          [
+            {
               "overflow": "hidden",
             },
-            Object {
+            {
               "borderRadius": 4,
             },
           ]
@@ -2578,8 +2682,8 @@ exports[`Timer Component when the app is mounting should render the Timer compon
       >
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "center",
@@ -2592,32 +2696,32 @@ exports[`Timer Component when the app is mounting should render the Timer compon
             numberOfLines={1}
             selectable={false}
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
-                Object {
+                {
                   "textAlign": "left",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "letterSpacing": 1,
                     "marginHorizontal": 16,
                     "marginVertical": 9,
                     "textAlign": "center",
                   },
                   undefined,
-                  Object {
+                  {
                     "textTransform": "uppercase",
                   },
-                  Object {
+                  {
                     "color": "black",
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
-                  Object {
+                  {
                     "fontFamily": "System",
                     "fontWeight": "500",
                   },
@@ -2633,7 +2737,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
     </View>
     <View
       style={
-        Object {
+        {
           "display": "flex",
           "flexDirection": "row",
           "justifyContent": "center",
@@ -2644,7 +2748,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -2654,7 +2758,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
             "elevation": 0,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -2666,8 +2770,16 @@ exports[`Timer Component when the app is mounting should render the Timer compon
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -2680,11 +2792,11 @@ exports[`Timer Component when the app is mounting should render the Timer compon
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -2692,8 +2804,8 @@ exports[`Timer Component when the app is mounting should render the Timer compon
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -2706,32 +2818,32 @@ exports[`Timer Component when the app is mounting should render the Timer compon
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
@@ -2749,7 +2861,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "backgroundColor": "transparent",
             "borderColor": "transparent",
             "borderRadius": 4,
@@ -2759,7 +2871,7 @@ exports[`Timer Component when the app is mounting should render the Timer compon
             "elevation": 0,
             "minWidth": 64,
             "shadowColor": "#000000",
-            "shadowOffset": Object {
+            "shadowOffset": {
               "height": 0,
               "width": 0,
             },
@@ -2771,8 +2883,16 @@ exports[`Timer Component when the app is mounting should render the Timer compon
         <View
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "disabled": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
             }
           }
           accessible={true}
@@ -2785,11 +2905,11 @@ exports[`Timer Component when the app is mounting should render the Timer compon
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "overflow": "hidden",
               },
-              Object {
+              {
                 "borderRadius": 4,
               },
             ]
@@ -2797,8 +2917,8 @@ exports[`Timer Component when the app is mounting should render the Timer compon
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "center",
@@ -2811,32 +2931,32 @@ exports[`Timer Component when the app is mounting should render the Timer compon
               numberOfLines={1}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#000000",
                     "fontFamily": "System",
                     "fontWeight": "400",
                   },
-                  Object {
+                  {
                     "textAlign": "left",
                   },
-                  Array [
-                    Object {
+                  [
+                    {
                       "letterSpacing": 1,
                       "marginHorizontal": 16,
                       "marginVertical": 9,
                       "textAlign": "center",
                     },
                     undefined,
-                    Object {
+                    {
                       "textTransform": "uppercase",
                     },
-                    Object {
+                    {
                       "color": "black",
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },
-                    Object {
+                    {
                       "fontFamily": "System",
                       "fontWeight": "500",
                     },

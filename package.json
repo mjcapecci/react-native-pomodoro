@@ -12,7 +12,8 @@
     "commit": "cz",
     "lint": "eslint components/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix 'components/**/*.{ts,tsx}'",
-    "format": "prettier --write 'components/**/*.{ts,tsx}' --config ./.prettierrc"
+    "format": "prettier --write 'components/**/*.{ts,tsx}' --config ./.prettierrc",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@babel/preset-env": "^7.19.1",
@@ -83,6 +84,8 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "jest-expo": "^50.0.0",
     "metro-react-native-babel-preset": "^0.77.0",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "react-test-renderer": "18.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.3.0"
