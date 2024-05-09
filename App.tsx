@@ -40,7 +40,7 @@ const queryClient = new QueryClient()
 
 const App = (): JSX.Element => {
   const Tab = createBottomTabNavigator()
-  const enableDevTools = Constants?.manifest?.extra?.enableDevTools
+  const enableDevTools = Constants?.expoConfig?.extra?.enableDevTools
 
   useEffect(() => {
     async function initializeSQLite(): Promise<void> {
