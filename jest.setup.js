@@ -1,2 +1,2 @@
-import '@testing-library/jest-native/extend-expect';
-jest.useFakeTimers();
+import '@testing-library/jest-native/extend-expect'
+jest.useFakeTimers()

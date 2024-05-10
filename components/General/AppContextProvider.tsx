@@ -29,7 +29,7 @@ function AppContextProvider({ children }: AppContextProviderProps): JSX.Element 
   const [lastVersionCheckTime, setLastVersionCheckTime] = React.useState<number>(0)
   const [showNewVersionModal, setShowNewVersionModal] = React.useState<boolean>(false)
 
-  const environment = Constants?.manifest?.extra?.environment
+  const environment = Constants?.expoConfig?.extra?.environment
 
   const shouldFetchAppVersion =
     lastVersionCheckTime !== 0 &&

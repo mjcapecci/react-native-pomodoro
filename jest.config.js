@@ -13,6 +13,6 @@ module.exports = {
     },
   },
   clearMocks: true,
-  setupFilesAfterEnv: ['./jest.setup.js'],
+  setupFilesAfterEnv: ['./jest.setup.js', '@testing-library/jest-native/extend-expect'],
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**'],
-};
+}

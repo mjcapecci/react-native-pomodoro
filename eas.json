@@ -1,24 +1,26 @@
 {
   "cli": {
-    "version": ">= 3.5.2"
+    "version": ">= 3.5.2",
+    "promptToConfigurePushNotifications": false
   },
   "build": {
     "development": {
-      "developmentClient": true,
+      "developmentClient": false,
       "distribution": "internal",
       "ios": {
-        "resourceClass": "m1-medium"
+        "resourceClass": "m-medium"
       }
     },
     "preview": {
       "distribution": "internal",
       "ios": {
-        "resourceClass": "m1-medium"
+        "resourceClass": "m-medium"
       }
     },
     "production": {
+      "node": "18.18.0",
       "ios": {
-        "resourceClass": "m1-medium"
+        "resourceClass": "m-medium"
       }
     }
   },
