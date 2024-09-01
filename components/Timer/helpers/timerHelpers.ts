@@ -73,10 +73,6 @@ export const getNextRoundSecondsDisplay = (roundNumber: number): TimerRoundStrin
   }
 }
 
-export const getRoundLoadingText = (roundNumber: number): string => {
-  return ''
-}
-
 export const fmtMSS = (s: number): string => {
   // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
   return (s - (s %= 60)) / 60 + (s > 9 ? ':' : ':0') + s

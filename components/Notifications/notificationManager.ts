@@ -58,6 +58,10 @@ export const scheduleNotification = async (seconds: number, roundType: string): 
   })
 }
 
+export const removeAllShownNotifications = async (): Promise<void> => {
+  return await Notifications.dismissAllNotificationsAsync()
+}
+
 export const cancelAllNotifications = async (): Promise<void> => {
   return await Notifications.cancelAllScheduledNotificationsAsync()
 }

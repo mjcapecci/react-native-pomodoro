@@ -5,12 +5,7 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 
 import styles from './Timer.style'
 
-import {
-  fmtMSS,
-  getIconColor,
-  getNextRoundSecondsDisplay,
-  getRoundLoadingText,
-} from './helpers/timerHelpers'
+import { fmtMSS, getIconColor, getNextRoundSecondsDisplay } from './helpers/timerHelpers'
 import { TimerContext } from './TimerContextProviderV2'
 import ConfirmationModal from './ConfirmationModal'
 import ReversePreviousModal from './ReversePreviousModal'
@@ -144,7 +139,6 @@ const Timer = (): JSX.Element => {
   ) : (
     <View style={styles.container}>
       <View style={styles.timeHeaderContainer}>
-        <Text style={styles.loadingCaption}>{getRoundLoadingText(time.roundNumber)}</Text>
         <ActivityIndicator size='large' color='#fff' />
       </View>
     </View>
