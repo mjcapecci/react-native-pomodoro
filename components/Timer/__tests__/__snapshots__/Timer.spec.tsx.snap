@@ -2489,64 +2489,6 @@ exports[`Timer Component when the app is mounted when the app state is visible w
 </View>
 `;
 
-exports[`Timer Component when the app is mounted when the timer is disabled and is in a loading state should render the appropriate loading next round text 1`] = `
-<View
-  collapsable={false}
-  pointerEvents="box-none"
-  style={
-    {
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      {
-        "alignItems": "center",
-        "backgroundColor": "#000",
-        "flex": 1,
-        "justifyContent": "center",
-      }
-    }
-  >
-    <View
-      style={
-        {
-          "alignItems": "center",
-          "display": "flex",
-          "height": 100,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <Text
-        style={
-          [
-            {
-              "color": "#000000",
-              "fontFamily": "System",
-              "fontWeight": "400",
-            },
-            {
-              "textAlign": "left",
-            },
-            {
-              "color": "#fff",
-              "fontSize": 24,
-              "marginBottom": 25,
-            },
-          ]
-        }
-      />
-      <ActivityIndicator
-        color="#fff"
-        size="large"
-      />
-    </View>
-  </View>
-</View>
-`;
-
 exports[`Timer Component when the app is mounting should render the Timer component 1`] = `
 <View
   collapsable={false}
