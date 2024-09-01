@@ -1,9 +1,4 @@
-import {
-  RoundType,
-  ColorType,
-  TimerRoundSeconds,
-  TimerRoundString,
-} from '../../../types'
+import { RoundType, ColorType, TimerRoundSeconds, TimerRoundString } from '../../../types'
 import {
   getNextRound,
   getRoundType,
@@ -103,40 +98,15 @@ describe('getNextRoundSecondsDisplay returns the appropriate seconds in string f
   })
 })
 
-// getRoundLoadingText
-// describe('getRoundType returns the appropriate round name...', () => {
-//   it('round 0', () => {
-//     expect(getRoundLoadingText(0)).toEqual(TimerLoadingText.Work)
-//   })
-//   it('round 1', () => {
-//     expect(getRoundLoadingText(1)).toEqual(TimerLoadingText.ShortBreak)
-//   })
-//   it('round 2', () => {
-//     expect(getRoundLoadingText(2)).toEqual(TimerLoadingText.Work)
-//   })
-//   it('round 3', () => {
-//     expect(getRoundLoadingText(3)).toEqual(TimerLoadingText.ShortBreak)
-//   })
-//   it('round 4', () => {
-//     expect(getRoundLoadingText(4)).toEqual(TimerLoadingText.Work)
-//   })
-//   it('round 5', () => {
-//     expect(getRoundLoadingText(5)).toEqual(TimerLoadingText.LongBreak)
-//   })
-//   it('invalid round', () => {
-//     expect(getRoundLoadingText(6)).toEqual(TimerLoadingText.Invalid)
-//   })
-// })
-
 // fmtMSS
 describe('fmtMSS returns a seconds number formatted for alarm clock time', () => {
-  it('1500 returns \'25:00\'', () => {
+  it("1500 returns '25:00'", () => {
     expect(fmtMSS(1500)).toBe('25:00')
   })
-  it('45 returns \'0:45\'', () => {
+  it("45 returns '0:45'", () => {
     expect(fmtMSS(45)).toBe('0:45')
   })
-  it('0 returns \'0:00\'', () => {
+  it("0 returns '0:00'", () => {
     expect(fmtMSS(0)).toBe('0:00')
   })
 })

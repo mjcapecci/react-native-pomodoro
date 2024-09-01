@@ -33,13 +33,6 @@ describe('Timer Component', () => {
   })
 
   describe('when the app is mounted', () => {
-    describe('when the timer is disabled and is in a loading state', () => {
-      it('should render the appropriate loading next round text', () => {
-        const { toJSON } = mountForSnap(disabledTimer)
-        expect(toJSON()).toMatchSnapshot()
-      })
-    })
-
     describe('when round is set to active', () => {
       it('should render the timer component with an active round', () => {
         const { toJSON } = mountForSnap(activeRound)

@@ -1,6 +1,8 @@
 import * as React from 'react'
 import Constants from 'expo-constants'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { removeAllShownNotifications } from '../Notifications/notificationManager'
+import { AppState } from 'react-native'
 
 interface State {
   appVersion: string
@@ -61,6 +63,25 @@ function AppContextProvider({ children }: AppContextProviderProps): JSX.Element 
         .catch((err) => console.log(err))
     }
   }, [environment, lastVersionCheckTime, shouldFetchAppVersion])
+
+  // when the app becomes active, use our notification manager to remove any notifatcions
+
+  const handleAppStateChange = async (nextAppState: string): Promise<void> => {
+    if (nextAppState === 'active') {
+      await removeAllShownNotifications()
+    }
+  }
+
+  React.useEffect(() => {
+    const subscription = AppState.addEventListener(
+      'change',
+      async (nextAppState) => await handleAppStateChange(nextAppState),
+    )
+
+    return () => {
+      subscription.remove()
+    }
+  }, [handleAppStateChange])
 
   return (
     <AppContext.Provider
